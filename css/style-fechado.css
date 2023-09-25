@@ -6,13 +6,18 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#container {
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-fc {
 	margin: 100px ;
 	width: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(0px, 90px);
 }
 
 input {
@@ -23,7 +28,7 @@ input {
     left: 10px;
 }
 
-#body {
+#body-fc {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +40,7 @@ input {
     transition: .3s ease-in-out;
 }
 
-#hinge {
+#hinge-fc {
 	width: 590px;
 	height: 40px;
 	background-color: #ebebeb; 
