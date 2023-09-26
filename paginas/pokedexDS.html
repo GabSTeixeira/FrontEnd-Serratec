@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="shortcut icon" href="../conteudo/favicons/pokeball.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style/pokedexDS.css">
+	<script src="../script/controlador.js"></script>
+    <script src="../script/nintendo-ds.js" defer></script>
+    <title>Pokedex</title>
+</head>
+<body>
+	<audio id="sound-track" src="/conteudo/audios/soudtrack-pokemon.mp3" loop ></audio>
+    <div id="container">
+        <!-- corpo do nintendo -->
+		<div id="body">
+			<input type="color" id="color">
+			<!-- alto-falante esquerdo -->
+			<div id="left-speaker">
+				<div class="speaker-hole" id="top-left-hole">
+				</div>
+				
+				<div class="speaker-hole" id="middle-left-hole">
+				</div>
+				
+				<div class="speaker-hole" id="left-left-hole">
+				</div>
+				
+				<div class="speaker-hole" id="right-left-hole">
+				</div>
+				
+				<div class="speaker-hole" id="bottom-left-hole">
+				</div>
+			</div>
+			<!-- teal de cima -->
+			<div id="top-screen" class="off">
+				<div class="logo">
+                    <img src="../conteudo/imgs/nintendo-logo.jpg" alt="New Nintendo 3DS Logo" id="3ds-logo">
+				</div>
+			</div>
+			<!-- alto-falante direito -->
+			<div id="right-speaker">
+				<div class="speaker-hole" id="top-right-hole">
+				</div>
+				
+				<div class="speaker-hole" id="middle-right-hole">
+				</div>
+				
+				<div class="speaker-hole" id="left-right-hole">
+				</div>
+				
+				<div class="speaker-hole" id="right-right-hole">
+				</div>
+				
+				<div class="speaker-hole" id="bottom-right-hole">
+				</div>
+			</div>
+			<!-- barra divisoria -->
+			<div id="hinge">
+				<div id="hinge-light">
+				</div>
+			</div>
+
+			<!-- setinhas -->
+			<div id="d-pad">
+                <i class="fa-solid fa-angle-up"></i>
+                <i class="fa-solid fa-angle-right"></i>
+                <i class="fa-solid fa-angle-left"></i>
+                <i class="fa-solid fa-angle-down"></i>
+			</div>
+			
+            <!-- moldura da tela de baixo -->
+			<div id="bottom-screen-holder">
+                <!-- tela de baixo -->
+				<div id="bottom-screen" class="off">
+				</div>
+				<!-- botao do pad -->
+				<div id="home-btn">
+				</div>
+			</div>
+
+			<!-- botoes coloridos -->
+			<div id="color-button-holder">
+				<div id="blue-btn">X</div>
+				<div id="green-btn">Y</div>
+				<div id="red-btn">B</div>
+				<div id="yellow-btn">A</div>
+			</div>
+			
+            <!-- butoes de ligar -->
+			<button id="start-btn">start</button>
+			
+			<button id="select-btn">select</button>
+			
+            <!-- barra de luz -->
+			<div id="lights-holder">
+				<div id="light-1">
+				</div>
+				
+				<div id="light-2">
+				</div>
+				
+				<div id="light-3">
+				</div>
+			</div>
+		</div>
+	</div>
+	<button class="btn btn-primary" onclick="deslogar()" id="btnDeslogar">Deslogar</button>
+	<script src="../script/pokedexDS.js"></script>
+</body>
+</html>

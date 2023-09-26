@@ -1,0 +1,246 @@
+:root{
+    --teste-font-size: 32px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+  }
+
+.btn{
+    width: 100%;
+}
+a {
+    color: #E0131D;
+    text-shadow: none;
+}
+  
+  body {
+    background: url(/conteudo/imgs/background-inicial.gif)  no-repeat center ;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.caixa{
+    animation: animacao 1s ease-in-out ;
+    display: flex;
+    background: rgba(255, 255, 255, 0.607);
+    width: 65%;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 2px grey;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    border: #e0131dcd;
+    border-width: 4px;
+    border-style: solid;
+}
+#form .pokebola {
+    width: 13%;
+    position: absolute;
+    top: -2%;
+    left: 28%;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    position: relative;
+}
+#form-cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    position: relative;
+}
+#form-cadastro .campo {
+    flex-direction: column;
+}
+#form-cadastro .pokebola {
+    width: 13%;
+    position: absolute;
+    top: -1%;
+    left: 24%;
+}
+.campo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.campo input{
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    box-shadow: 0 2px grey;
+}
+
+#boxDePoder{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#boxDePoder p {
+    font-size: 15px;
+    margin: 3px 0 3px 0;
+}
+
+#nmPokemon{
+    background: rgba(214, 201, 10, 0.425);
+}
+
+#poderNm{
+    margin: 0;
+    padding-left: -10px;
+    width: 50%;
+    text-align: end;
+}
+#poderBox{
+    width: 50%;
+    text-align: end;
+}
+
+#poderBox p{
+    margin: 3px 5px 3px 3px;
+    display: inline-flexbox;
+}
+/* Botão */
+.btn{
+    background-color: #E0131D !important  ;
+    width: 50%;
+}
+.btn-53,
+.btn-53 *,
+.btn-53 :after,
+.btn-53 :before,
+.btn-53:after,
+.btn-53:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-53 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+}
+
+.btn-53:disabled {
+  cursor: default;
+}
+
+.btn-53:-moz-focusring {
+  outline: auto;
+}
+
+.btn-53 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-53 [hidden] {
+  display: none;
+}
+
+.btn-53 {
+  border: 1px solid;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: block;
+  font-weight: 900;
+  overflow: hidden;
+  padding: 1.2rem 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.btn-53 .original {
+  background: #fff;
+  color: #000;
+  display: grid;
+  inset: 0;
+  place-content: center;
+  position: absolute;
+  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.btn-53:hover .original {
+  transform: translateY(100%);
+}
+
+.btn-53 .letters {
+  display: inline-flex;
+}
+
+.btn-53 span {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+}
+
+.btn-53 span:nth-child(2n) {
+  transform: translateY(15px);
+}
+
+.btn-53:hover span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-53:hover span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.btn-53:hover span:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.btn-53:hover span:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.btn-53:hover span:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.btn-53:hover span:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+.btn-53:hover span:nth-child(7) {
+  transition-delay: 0.6s;
+}
+
+.btn-53:hover span:nth-child(8) {
+  transition-delay: 0.7s;
+}
+
+.btn-53:hover span:nth-child(9) {
+  transition-delay: 0.8s;
+}
