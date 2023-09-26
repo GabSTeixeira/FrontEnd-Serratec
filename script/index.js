@@ -1,5 +1,5 @@
 if (localStorage.getItem("acesso") === "true") {
-    window.location.href = "../paginas/pokedexDS.html"
+    window.location.href = "../paginas/ds-fechado.html"
 }
 
 function logar() {
