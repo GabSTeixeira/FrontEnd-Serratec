@@ -7,7 +7,7 @@ function deslogar(){
 
     localStorage.setItem("acesso", false);
     alert('Saindo')
-    return window.location.href = "login.html"
+    return window.location.href = "../index.html"
 }
 
 

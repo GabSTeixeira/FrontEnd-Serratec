@@ -15,7 +15,7 @@ function logar() {
         if (usuario.login === login && usuario.senha === senha) {
             localStorage.setItem("acesso", true)
             alert('Logado com sucesso!');
-            return window.location.href = "index.html";
+            return window.location.href = "../index.html";
         }
     }
 
