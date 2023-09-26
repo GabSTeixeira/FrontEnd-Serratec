@@ -71,6 +71,7 @@ setaDown.addEventListener('click', () => {
 //função que aumenta o volume
 function aumentarVolume() {
     audio.volume += 0.1
+    
 }
 
 //função que diminui o volume
