@@ -7,6 +7,7 @@ if(localStorage.getItem("acesso") === "false"){
 const imgPokemon = document.getElementById("imgPokemon");
 const nomePokemon = document.getElementById("nomePokemon");
 
+const pesquisaPokemon = document.getElementById("pesquisaPokemon")
 //const poderNm = document.getElementById("poderNm");
 //const poderBox = document.getElementById("poderBox");
 //const input = document.getElementById("searchPokemon");
@@ -30,7 +31,7 @@ const exibirPokemon = async (pokemon) =>{
 
     const data = await consultarPokemon(pokemon);
 
-    if(data){
+    if(data && data.id < 650 && data.id > 0){
         
         nomePokemon.innerHTML = `<h3>${data.id} - ${data.name}</h3>`;
         imgPokemon.src = data['sprites']['versions']['generation-v']['black-white']

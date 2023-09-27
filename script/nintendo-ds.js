@@ -25,6 +25,7 @@ const home = document.getElementById('home-btn')
 //telas
 const telaCima = document.getElementById('top-screen')
 const telaBaixo = document.getElementById('bottom-screen')
+const formTelaBaixo = document.getElementById('formTelaBaixo')
 
 //input de cor
 const color = document.querySelector("#color")
@@ -49,12 +50,16 @@ home.addEventListener('click', () => {
     audio.volume = .2
 //se a tela de cima tiver a classe 'off' o audio pause senao ele toca
     if (telaCima.classList.contains('off')) {
+        //para e reseta a musica
         audio.pause()
         audio.currentTime = 0
 
+        //esconde todas as informações
         imgPokemon.style.display = 'none'
         nomePokemon.style.display = 'none'
         luz.style.background = '#7a7e7d'
+
+        pesquisaPokemon.style.visibility = 'hidden'
 
         telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg')"
         telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif')"
@@ -71,19 +76,29 @@ home.addEventListener('click', () => {
 //evento que inicia a api
 start.addEventListener('click', () => {
     if (!telaCima.classList.contains('off')) {
-        
+        //faz aparecer as tela de cima e de baixo
         imgPokemon.style.display = 'block'
         nomePokemon.style.display = 'block'
 
+        //define a nova imagem de cima e de baixo
         telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
         telaCima.style.backgroundSize = 'cover'
         
-        telaBaixo.style.background = "none"
         telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
         telaBaixo.style.backgroundSize = 'cover'
 
+        //mostrar a pesquisa e os stats
+        pesquisaPokemon.style.visibility = 'visible'
+
         exibirPokemon("1");
     }
+})
+
+
+formTelaBaixo.addEventListener("submit", (event) => {
+    event.preventDefault()
+    
+    exibirPokemon(pesquisaPokemon.value)
 })
 
 //evento que troca as cores do nintendo
