@@ -14,6 +14,7 @@ function logar() {
     const vetorUsuario = JSON.parse(localStorage.getItem('usuario'));
     for (let usuario of vetorUsuario) {
         if (usuario.email === email && usuario.senha === senha) {
+            localStorage.setItem("usuarioLogado",usuario.nome)
             localStorage.setItem("acesso", true)
             return window.location.href = "../index.html";
         }

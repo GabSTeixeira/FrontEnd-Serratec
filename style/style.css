@@ -1,5 +1,6 @@
 :root {
   --teste-font-size: 32px;
+  --vermelho:#e0131d;
 }
 
 * {
@@ -17,7 +18,7 @@ body {
 
 
 a {
-  color: #e0131d;
+  color: var(--vermelho);
   text-shadow: none;
 }
 
@@ -310,5 +311,3 @@ body {
     font-size: 1.2em;
   }  
 }
-
-
