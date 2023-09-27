@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" href="../conteudo/favicons/pokeball.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/pokedexDS.css">
 	<script src="../script/controlador.js"></script>
-    <script src="../script/nintendo-ds.js" defer></script>
+	
     <title>Pokedex</title>
 </head>
 <body>
@@ -33,11 +33,12 @@
 				<div class="speaker-hole" id="bottom-left-hole">
 				</div>
 			</div>
-			<!-- teal de cima -->
+			<!-- tela de cima -->
 			<div id="top-screen" class="off">
-				<div class="logo">
-                    <img src="../conteudo/imgs/nintendo-logo.jpg" alt="New Nintendo 3DS Logo" id="3ds-logo">
-				</div>
+				
+				<img id="imgPokemon" src="#" alt="pokemon" style="display: none;">
+				<div id="nomePokemon" class="" style="display: none;"></div>
+
 			</div>
 			<!-- alto-falante direito -->
 			<div id="right-speaker">
@@ -74,6 +75,12 @@
 			<div id="bottom-screen-holder">
                 <!-- tela de baixo -->
 				<div id="bottom-screen" class="off">
+					<form id="formTelaBaixo">
+						<input style="visibility: hidden;" id="pesquisaPokemon" type="search" placeholder="Digite um nome ou numero">
+					</form>
+					<div id="infoTelaBaixo">
+
+					</div>	
 				</div>
 				<!-- botao do pad -->
 				<div id="home-btn">
@@ -108,5 +115,6 @@
 	</div>
 	<button class="btn btn-primary" onclick="deslogar()" id="btnDeslogar">Deslogar</button>
 	<script src="../script/pokedexDS.js"></script>
+	<script src="../script/nintendo-ds.js"></script> 
 </body>
 </html>
