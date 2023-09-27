@@ -1,3 +1,8 @@
+
+
+
+
+
 //nintendo
 const nintendo = document.querySelector("#body")
 
@@ -16,10 +21,12 @@ const yellowBtn = document.getElementById('yellow-btn')
 //start e select
 const start = document.getElementById('start-btn')
 const select = document.getElementById('select-btn')
-
+const home = document.getElementById('home-btn')
 //telas
 const telaCima = document.getElementById('top-screen')
 const telaBaixo = document.getElementById('bottom-screen')
+const formTelaBaixo = document.getElementById('formTelaBaixo')
+
 
 //input de cor
 const color = document.querySelector("#color")
@@ -33,10 +40,15 @@ const audio = document.getElementById('sound-track')
 //luz de ativação
 const luz = document.getElementById('light-3')
 
+
+
+let volumeAtual = 2
+
+
 //============== Eventos ==============
 
 //evento que liga a tela
-start.addEventListener('click', () => {
+home.addEventListener('click', () => {
     telaCima.classList.toggle('off')
     telaBaixo.classList.toggle('off')
 
@@ -44,12 +56,59 @@ start.addEventListener('click', () => {
     audio.volume = .2
 //se a tela de cima tiver a classe 'off' o audio pause senao ele toca
     if (telaCima.classList.contains('off')) {
+        //para e reseta a musica
         audio.pause()
+        audio.currentTime = 0
+
+        //esconde todas as informações
+        imgPokemon.style.display = 'none'
+        nomePokemon.style.display = 'none'
         luz.style.background = '#7a7e7d'
+
+        pesquisaPokemon.style.visibility = 'hidden'
+
+        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg')"
+        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif')"
+
+        telaCima.style.backgroundSize = 'cover'
+        telaBaixo.style.backgroundSize = 'cover'
+
     } else {
         audio.play()
         luz.style.background = 'green'
     }    
+})
+
+//evento que inicia a api
+start.addEventListener('click', () => {
+    if (!telaCima.classList.contains('off')) {
+        //faz aparecer as tela de cima e de baixo
+        imgPokemon.style.display = 'block'
+        nomePokemon.style.display = 'block'
+        tipoIcon.style.display = 'block'
+
+        //define a nova imagem de cima e de baixo
+        telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
+        telaCima.style.backgroundSize = 'cover'
+        
+        //telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
+        telaBaixo.style.background = 'linear-gradient(to bottom, rgb(43, 42, 42), rgb(27, 27, 27))'
+        telaBaixo.style.backgroundSize = 'cover'
+
+        //telaBaixo.style.border = "2px solid red"
+        telaBaixo.style.boxShadow = "inset 0 0 10px black"
+        //mostrar a pesquisa e os stats
+        pesquisaPokemon.style.visibility = 'visible'
+
+        exibirPokemon("1");
+    }
+})
+
+
+formTelaBaixo.addEventListener("submit", (event) => {
+    event.preventDefault()
+    
+    exibirPokemon(pesquisaPokemon.value)
 })
 
 //evento que troca as cores do nintendo
@@ -62,18 +121,47 @@ setaUp.addEventListener('click', () => {
     aumentarVolume()
 })
 
+//evento de clique na seta pra direita
+setaRight.addEventListener('click', () => {
+   proxPokemon()
+})
+
 //evento de clique na seta pra baixo
 setaDown.addEventListener('click', () => {
     diminuirVolume()
 })
 
+//evento de clique na seta pra esquerda
+setaLeft.addEventListener('click', () => {
+    prevPokemon()
+})
+
 //================ Funções ================ 
 //função que aumenta o volume
 function aumentarVolume() {
-    audio.volume += 0.1
+    
+    // a verificação vai de 0 até 10
+    if (volumeAtual < 10) {
+
+        volumeAtual++
+        // e volume vai de 0 até 1, por isso é precisa dividir por 10
+        let volumeCorrigido = (volumeAtual /10)
+        
+        audio.volume = volumeCorrigido
+    
+    }
+      
 }
+
 
 //função que diminui o volume
 function diminuirVolume() {
-    audio.volume -= 0.1
+      
+    if(volumeAtual > 0) {
+        
+        volumeAtual--
+        let volumeCorrigido = (volumeAtual/10)
+        audio.volume = volumeCorrigido
+    }
+    
 }

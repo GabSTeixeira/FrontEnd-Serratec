@@ -86,6 +86,10 @@ body {
 }
 
 #top-screen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 	width: 350px;
 	height: 112px;
 	position: relative;
@@ -99,13 +103,33 @@ body {
 	box-shadow: 0px 0px 2px 2px #dbdede;
 }
 
+#top-screen img {
+	
+	height: 100%;
+	width: 50%;
+	
+	/* position: relative;
+	bottom: 40%;
+	left: 30%;
+	
+	transform: translate(-63%,20%);
+	height: 60%; */
+}
+
+
 #bottom-screen {
 	width: 287px;
 	height: 200px;
+	align-items: center;
 	position: relative;
 	margin: 0 auto;
 	background: url(/conteudo/imgs/gif-pikachu.gif);
 	background-size: cover;
+	color: #f1f1f1;border-top: -10%;
+	border-radius: 6px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.664);
+
+
 }
 
 #bottom-screen-holder {
@@ -119,6 +143,34 @@ body {
 	border-radius: 15px 15px 25px 25px;
 	box-shadow: 0px 0px 2px 2px #dbdede;
 }
+
+#formTelaBaixo input{
+	width: 100%;
+	height: 18%;
+	background-color: #d1d1d1;
+	left: 0;
+	top: 0;
+	font-size: large;
+	border: none;
+}
+
+#formTelaBaixo input:focus{
+	outline: none;
+}
+
+#infoTelaBaixo{
+	padding-top: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+}
+
+#pokemon_altura, #pokemon_peso{
+	font-size: x-large;
+}
+
 
 #left-speaker, #top-left-hole, #middle-left-hole, #left-left-hole, #right-left-hole, #bottom-left-hole, #right-speaker {
 	position: relative;
@@ -273,16 +325,20 @@ body {
     border-bottom: 2px solid #0000004f;
 }
 
-
 #home-btn {
 	width: 48px;
 	height: 25px;
 	position: relative;
 	top: 15px;
 	left: 135px;
-	background-color: #e4e5e5;
-	border: 2px solid #dbdede; 
+	background-color: #555858;
+	border: 2px solid #161616; 
 	border-radius: 10px;
+	cursor: pointer;	
+}
+
+#home-btn:active {
+	transform: scale(0.9);
 }
 
 #color-button-holder {
@@ -407,6 +463,31 @@ body {
 
 .off {
 	background: var(--black) !important;
+}
+
+.tipoIcon {
+	position: absolute;
+	right: 0.3rem;
+	top: 0.3rem;
+	padding: 0.5rem;
+	height: 0.5rem;
+	width: 0.5rem;
+	background-color: #f1f1f1;
+	border-radius: 1000px;
+	cursor: help;
+	box-shadow: 0 0 10px rgba(255, 0, 0, 0);
+  }
+
+  .infoPokemonTeste{
+	font-size: 20px;
+  }
+
+  .type {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.6rem;
+    display: block;
+    margin: 0.25rem;
 }
 
 /* Animation styles, currently not working */
