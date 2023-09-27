@@ -1,7 +1,9 @@
+
 if(localStorage.getItem("acesso") === "true"){
     alert("Você precisa deslogar para cadastrar um novo usuario!")
     window.location.href = "../paginas/pokedexDS.html"
 }
+
 
 function cadastrar(){
     const nome = document.getElementById("nome").value;

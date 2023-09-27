@@ -1,7 +1,5 @@
 
-
-
-
+//============== variaveis ==============
 
 //nintendo
 const nintendo = document.querySelector("#body")
@@ -22,14 +20,14 @@ const yellowBtn = document.getElementById('yellow-btn')
 const start = document.getElementById('start-btn')
 const select = document.getElementById('select-btn')
 const home = document.getElementById('home-btn')
+
 //telas
 const telaCima = document.getElementById('top-screen')
 const telaBaixo = document.getElementById('bottom-screen')
 const formTelaBaixo = document.getElementById('formTelaBaixo')
 
-
 //input de cor
-const color = document.querySelector("#color")
+const color = document.getElementById("color")
 
 //alto-falantes
 const altoEsquerdo = document.getElementById('right-speaker')
@@ -40,10 +38,33 @@ const audio = document.getElementById('sound-track')
 //luz de ativação
 const luz = document.getElementById('light-3')
 
+//botao de sair
+const btnX = document.querySelector('.fa-x')
 
+//menu
+const menu = document.getElementById('menu')
+
+//icon para abrir menu
+const btnIcon = document.getElementById('btn-icon')
+
+//informacoes do pokemon
+const infoPokemon = document.getElementById('infoTelaBaixo')
+
+//tipo do pokemon
+const tipoPokemon = document.querySelector(".tipoIcon")
+
+//quadro de avatares
+const avatarOptions = document.getElementById('avatar-options')
+
+//avatar atual
+const avatarAtual = document.getElementById('avatar')
+const nomeUsuario = document.getElementById('nameUser')
+
+//opções de avatares
+const avatarMasculino = document.getElementById('avatarMale')
+const avatarFeminino = document.getElementById('avatarFemale')
 
 let volumeAtual = 2
-
 
 //============== Eventos ==============
 
@@ -63,6 +84,9 @@ home.addEventListener('click', () => {
         //esconde todas as informações
         imgPokemon.style.display = 'none'
         nomePokemon.style.display = 'none'
+        infoPokemon.style.display = 'none'
+        tipoPokemon.style.display = 'none'
+        
         luz.style.background = '#7a7e7d'
 
         pesquisaPokemon.style.visibility = 'hidden'
@@ -86,6 +110,8 @@ start.addEventListener('click', () => {
         imgPokemon.style.display = 'block'
         nomePokemon.style.display = 'block'
         tipoIcon.style.display = 'block'
+        infoPokemon.style.display = 'block'
+        tipoPokemon.style.display = 'block'
 
         //define a nova imagem de cima e de baixo
         telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
@@ -104,6 +130,26 @@ start.addEventListener('click', () => {
     }
 })
 
+//evento que abre as opcoes de avatar
+avatarAtual.addEventListener('click', () => {
+    avatarOptions.classList.toggle('open')
+})
+
+//evento que troca o avatar para masculino
+avatarMasculino.addEventListener('click', () => {
+    avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-masculino.webp)'
+    avatarAtual.style.backgroundSize = 'cover'
+
+    avatarOptions.classList.toggle('open')
+})
+
+//evento que troca o avatar para feminino
+avatarFeminino.addEventListener('click', () => {
+    avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-feminino01.webp)'
+    avatarAtual.style.backgroundSize = 'cover'
+
+    avatarOptions.classList.toggle('open')
+})
 
 formTelaBaixo.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -123,7 +169,7 @@ setaUp.addEventListener('click', () => {
 
 //evento de clique na seta pra direita
 setaRight.addEventListener('click', () => {
-   proxPokemon()
+    proxPokemon()
 })
 
 //evento de clique na seta pra baixo
@@ -136,7 +182,20 @@ setaLeft.addEventListener('click', () => {
     prevPokemon()
 })
 
+//evento que fecha o menu
+btnX.addEventListener('click', () => {
+    menu.classList.remove('open')
+})
+
+//evento que abre o menu
+btnIcon.addEventListener('click', () => {
+    menu.classList.add('open')
+})
+
 //================ Funções ================ 
+
+buscarNomeUsuario()
+
 //função que aumenta o volume
 function aumentarVolume() {
     
@@ -148,20 +207,22 @@ function aumentarVolume() {
         let volumeCorrigido = (volumeAtual /10)
         
         audio.volume = volumeCorrigido
-    
     }
-      
 }
-
 
 //função que diminui o volume
 function diminuirVolume() {
-      
+
     if(volumeAtual > 0) {
         
         volumeAtual--
         let volumeCorrigido = (volumeAtual/10)
         audio.volume = volumeCorrigido
     }
-    
+}
+
+function buscarNomeUsuario() {
+    const usuarioLogado = localStorage.getItem("usuarioLogado")
+
+    nomeUsuario.innerHTML = usuarioLogado
 }
