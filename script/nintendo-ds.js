@@ -64,7 +64,7 @@ const nomeUsuario = document.getElementById('nameUser')
 const avatarMasculino = document.getElementById('avatarMale')
 const avatarFeminino = document.getElementById('avatarFemale')
 
-let volumeAtual = 2
+let volumeAtual
 let apiStart = false
 let dsLigado = false
 
@@ -75,7 +75,7 @@ home.addEventListener('click', () => {
     telaCima.classList.toggle('off')
     telaBaixo.classList.toggle('off')
 
-    //  volume audio padrão 
+    //volume audio padrão
     audio.volume = .2
     //se a tela de cima tiver a classe 'off' o audio pausa senao ele toca
     if (telaCima.classList.contains('off')) {
@@ -100,11 +100,15 @@ home.addEventListener('click', () => {
         telaBaixo.style.backgroundSize = 'cover'
 
         apiStart = false
+        console.log("dsDesligado")
         dsLigado = false
 
     } else {
         audio.play()
+
+        volumeAtual = 2
         dsLigado = true
+        console.log("dsLigado")
         luz.style.background = 'green'
     }    
 })
@@ -175,6 +179,7 @@ color.addEventListener("input", () => {
 //evento de clique na seta pra cima
 setaUp.addEventListener('click', () => {
     if (dsLigado) {
+        console.log(dsLigado)
         aumentarVolume()
     }
 })
@@ -183,14 +188,16 @@ setaUp.addEventListener('click', () => {
 setaRight.addEventListener('click', () => {
     
     if (dsLigado && apiStart) {
+        console.log(dsLigado)
         proxPokemon()
     }
 })
 
 //evento de clique na seta pra baixo
 setaDown.addEventListener('click', () => {
-    
+    console.log("setaBaixo dsState: "+dsLigado)
     if (dsLigado) {
+        console.log(dsLigado)
         diminuirVolume()
     }
 })
@@ -232,6 +239,9 @@ function aumentarVolume() {
 
 //função que diminui o volume
 function diminuirVolume() {
+
+
+    console.log(volumeAtual)
 
     if(volumeAtual > 0) {
         
