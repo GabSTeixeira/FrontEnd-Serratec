@@ -63,7 +63,7 @@ const cores = {
 
 
 let idPokemonBuscado = 1
-
+// consultaPokemon se torna uma variavel assincrona, logo em seguida conceta o api e casso o api status seja igual 200(significa ok) caso seja ele usa o JSON para aliemntar a variavel data.
 const consultarPokemon = async (pokemon) => {
     const API = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
     if(API.status == 200){
@@ -71,7 +71,7 @@ const consultarPokemon = async (pokemon) => {
         return data
     }
 }
-
+// alimenta a data  com o pokemon consultado  e caso data.id seja menopr que 650 e maior que 0 ele seta o nome do pokemon o id na tela e a imagem na tela de cima do DS
 const exibirPokemon = async (pokemon) =>{
 
     //poderNm.innerHTML =  ``
@@ -84,14 +84,14 @@ const exibirPokemon = async (pokemon) =>{
         nomePokemon.innerHTML = `<h2 style="margin-top: 10px">#${data.id}  - ${data.name}</h2>`;
         imgPokemon.src = data['sprites']['versions']['generation-v']['black-white']
         ['animated']['front_default'];
-
+// seta o tipo do pokeon nas variaveis tp1 ou em caso de dois tipos em tp1 e tp2
         let tipos = data.types.map(tp =>tp.type.name)
         let tp1 = tipos[0]
         let tp2 = tipos[1]
         const color = cores[tp1]
         const cor = coresTeste[tp1]
         console.log(tipos)
-
+// reconhece se o pokemonm tem um ou dois tipos
         if(tipos.length != 1){
             tipos = `${tp1} / ${tp2}`
         }else{
@@ -109,6 +109,7 @@ const exibirPokemon = async (pokemon) =>{
         //bottomScreen.style.borderTop = "none"
 
         //style = "background: black; border-radius: 40%; padding: 10px"
+        // Seta na tela debaixo o peso a altura e o tipo de pokemon 
         infoTelaBaixo.innerHTML =  `
             <div id="infoPokemon" style="  display: flex; justify-content: space-around; width: 100%">
             <div > <p class="infoPokemonTeste"> Peso</p> <h3 class="type"> ${data.weight/10} kg </h3></div>
@@ -134,6 +135,7 @@ const exibirPokemon = async (pokemon) =>{
      
 }
 
+// funçao que acrescenta +1 no id do ultimop pokemon que foi pesquisado ou o pokemon inicial e caso de id maior que 649 ele retorna ao primeiro id
 function proxPokemon () {
    
     let number = parseInt(idPokemonBuscado)
