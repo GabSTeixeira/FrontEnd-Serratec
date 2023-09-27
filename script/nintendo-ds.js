@@ -39,6 +39,11 @@ const audio = document.getElementById('sound-track')
 //luz de ativação
 const luz = document.getElementById('light-3')
 
+
+
+let volumeAtual = 2
+
+
 //============== Eventos ==============
 
 //evento que liga a tela
@@ -129,10 +134,29 @@ setaLeft.addEventListener('click', () => {
 //================ Funções ================ 
 //função que aumenta o volume
 function aumentarVolume() {
-    audio.volume += 0.1
+    
+    // a verificação vai de 0 até 10
+    if (volumeAtual < 10) {
+
+        volumeAtual++
+        // e volume vai de 0 até 1, por isso é precisa dividir por 10
+        let volumeCorrigido = (volumeAtual /10)
+        
+        audio.volume = volumeCorrigido
+    
+    }
+      
 }
+
 
 //função que diminui o volume
 function diminuirVolume() {
-    audio.volume -= 0.1
+      
+    if(volumeAtual > 0) {
+        
+        volumeAtual--
+        let volumeCorrigido = (volumeAtual/10)
+        audio.volume = volumeCorrigido
+    }
+    
 }
