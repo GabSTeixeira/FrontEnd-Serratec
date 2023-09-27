@@ -64,7 +64,9 @@ const nomeUsuario = document.getElementById('nameUser')
 const avatarMasculino = document.getElementById('avatarMale')
 const avatarFeminino = document.getElementById('avatarFemale')
 
-let volumeAtual = 2
+let volumeAtual
+let apiStart = false
+let dsLigado = false
 
 //============== Eventos ==============
 
@@ -73,9 +75,9 @@ home.addEventListener('click', () => {
     telaCima.classList.toggle('off')
     telaBaixo.classList.toggle('off')
 
-//  volume audio padrão 
+    //volume audio padrão
     audio.volume = .2
-//se a tela de cima tiver a classe 'off' o audio pause senao ele toca
+    //se a tela de cima tiver a classe 'off' o audio pausa senao ele toca
     if (telaCima.classList.contains('off')) {
         //para e reseta a musica
         audio.pause()
@@ -97,14 +99,24 @@ home.addEventListener('click', () => {
         telaCima.style.backgroundSize = 'cover'
         telaBaixo.style.backgroundSize = 'cover'
 
+        apiStart = false
+        console.log("dsDesligado")
+        dsLigado = false
+
     } else {
         audio.play()
+
+        volumeAtual = 2
+        dsLigado = true
+        console.log("dsLigado")
         luz.style.background = 'green'
     }    
 })
 
 //evento que inicia a api
 start.addEventListener('click', () => {
+    
+    //verifica se a tela de cima esta ligada
     if (!telaCima.classList.contains('off')) {
         //faz aparecer as tela de cima e de baixo
         imgPokemon.style.display = 'block'
@@ -126,6 +138,8 @@ start.addEventListener('click', () => {
         //mostrar a pesquisa e os stats
         pesquisaPokemon.style.visibility = 'visible'
 
+
+        apiStart = true
         exibirPokemon("1");
     }
 })
@@ -164,22 +178,35 @@ color.addEventListener("input", () => {
 
 //evento de clique na seta pra cima
 setaUp.addEventListener('click', () => {
-    aumentarVolume()
+    if (dsLigado) {
+        console.log(dsLigado)
+        aumentarVolume()
+    }
 })
 
 //evento de clique na seta pra direita
 setaRight.addEventListener('click', () => {
-    proxPokemon()
+    
+    if (dsLigado && apiStart) {
+        console.log(dsLigado)
+        proxPokemon()
+    }
 })
 
 //evento de clique na seta pra baixo
 setaDown.addEventListener('click', () => {
-    diminuirVolume()
+    console.log("setaBaixo dsState: "+dsLigado)
+    if (dsLigado) {
+        console.log(dsLigado)
+        diminuirVolume()
+    }
 })
 
 //evento de clique na seta pra esquerda
 setaLeft.addEventListener('click', () => {
-    prevPokemon()
+    if (dsLigado && apiStart) {
+        prevPokemon()
+    }
 })
 
 //evento que fecha o menu
@@ -212,6 +239,9 @@ function aumentarVolume() {
 
 //função que diminui o volume
 function diminuirVolume() {
+
+
+    console.log(volumeAtual)
 
     if(volumeAtual > 0) {
         
