@@ -1,129 +1,145 @@
-:root{
-    --teste-font-size: 32px;
+:root {
+  --teste-font-size: 32px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0; 
-  }
-
-.btn{
-    width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 a {
-    color: #E0131D;
-    text-shadow: none;
+  color: #e0131d;
+  text-shadow: none;
 }
-  
-  body {
-    background: url(/conteudo/imgs/background-inicial.gif)  no-repeat center ;
-    background-size: cover;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 
-.caixa{
-    animation: animacao 1s ease-in-out ;
-    display: flex;
-    background: rgba(255, 255, 255, 0.607);
-    width: 65%;
-    padding: 20px;
-    text-align: center;
-    text-shadow: 2px 2px 2px grey;
-    border-radius: 15px;
-    box-shadow: 5px 5px 5px black;
-    border: #e0131dcd;
-    border-width: 4px;
-    border-style: solid;
+body {
+  background: url(/conteudo/imgs/background-inicial.gif) no-repeat center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#form .pokebola {
-    width: 13%;
-    position: absolute;
-    top: -2%;
-    left: 28%;
+
+.caixa {
+  animation: box .7s ease-in-out;
+  display: flex;
+  background: #ffffff9b;
+  width: 65%;
+  padding: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 2px grey;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #000000a6;
+  border: #e0131dcd;
+  border-width: 4px;
+  border-style: solid;
 }
 
 #form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-    position: relative;
-}
-#form-cadastro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-    position: relative;
-}
-#form-cadastro .campo {
-    flex-direction: column;
-}
-#form-cadastro .pokebola {
-    width: 13%;
-    position: absolute;
-    top: -1%;
-    left: 24%;
-}
-.campo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-}
-.campo input{
-    width: 80%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid white;
-    box-shadow: 0 2px grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+  position: relative;
 }
 
-#boxDePoder{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
+#form-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  position: relative;
+}
+
+.pokebola {
+  animation: pokebola 1s ease-in-out;
+  z-index: 2;
+}
+
+#form .pokebola {
+  width: 10%;
+  position: absolute;
+  top: -3%;
+  left: 1%;
+}
+
+#form-cadastro .campo {
+  flex-direction: column;
+}
+
+#form-cadastro .pokebola {
+  width: 13%;
+  position: absolute;
+  top: -1%;
+  left: 1%;
+}
+
+.campo {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.campo input {
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  box-shadow: 0 2px grey;
+}
+
+#boxDePoder {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 #boxDePoder p {
-    font-size: 15px;
-    margin: 3px 0 3px 0;
+  font-size: 15px;
+  margin: 3px 0 3px 0;
 }
 
-#nmPokemon{
-    background: rgba(214, 201, 10, 0.425);
+#nmPokemon {
+  background: #d6c90a6c;
 }
 
-#poderNm{
-    margin: 0;
-    padding-left: -10px;
-    width: 50%;
-    text-align: end;
+#poderNm {
+  margin: 0;
+  padding-left: -10px;
+  width: 50%;
+  text-align: end;
 }
-#poderBox{
-    width: 50%;
-    text-align: end;
+#poderBox {
+  width: 50%;
+  text-align: end;
 }
 
-#poderBox p{
-    margin: 3px 5px 3px 3px;
-    display: inline-flexbox;
+#poderBox p {
+  margin: 3px 5px 3px 3px;
+  display: inline-flexbox;
 }
 /* Botão */
-.btn{
-    background-color: #E0131D !important  ;
-    width: 50%;
+.btn {
+  background-color: #e0131d !important;
 }
+
+/* botao */
 .btn-53,
 .btn-53 *,
 .btn-53 :after,
@@ -135,8 +151,6 @@ a {
 }
 
 .btn-53 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
   background-color: #000;
   background-image: none;
   color: #fff;
@@ -147,7 +161,6 @@ a {
   font-size: 100%;
   line-height: 1.5;
   margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
 }
 
@@ -244,3 +257,58 @@ a {
 .btn-53:hover span:nth-child(9) {
   transition-delay: 0.8s;
 }
+
+
+@keyframes box {
+  from {
+    transform: scale(.5);
+  }
+
+  90% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes poksebola {
+  to {
+    transform: scale(70);
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+
+  .caixa, .campo input {
+    width: 80%;
+  }
+
+  #form-cadastro .letters {
+    width: 100%;
+  }
+}
+
+/* tela cheia */
+@media screen and (min-width: 1000px) {
+  .caixa {
+    width: 40%;
+  }
+
+  #form, #form-cadastro {
+    gap: 30px;
+  }
+
+  #form h2 {
+    margin-left: 10px;
+    font-size: 3em;
+  }
+
+  #form .campo {
+    width: 80%;
+  }
+
+  #form label {
+    font-size: 1.2em;
+  }  
+}
+
+
