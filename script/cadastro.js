@@ -4,7 +4,8 @@ if(localStorage.getItem("acesso") === "true"){
 }
 
 function cadastrar(){
-    const login = document.getElementById("login").value;
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
     const confirmar = document.getElementById("confirmar").value;
 
@@ -13,7 +14,8 @@ function cadastrar(){
     }
 
     const usuario = {
-        login: login, 
+        nome: nome,
+        email: email,
         senha: senha
     };
 
@@ -22,21 +24,24 @@ function cadastrar(){
     }
 
     let vetorUsuario = JSON.parse(localStorage.getItem('usuario'));
-    if(usuarioExiste(vetorUsuario, usuario.login)){
+    if(usuarioExiste(vetorUsuario, usuario.email)){
         return alert('ERRO: Usuario já cadastrado!')
     }
 
     vetorUsuario.push(usuario);
     localStorage.setItem("usuario", JSON.stringify(vetorUsuario));
-    return alert("Cadastrado com Sucesso!");
+    alert("Cadastrado com Sucesso!");
+
+
+    console.log("alouuuuuuuuuuuuuuuuuuuuuuuuuuu")
+    return window.location.href = "../index.html"
 
 };
 
-function usuarioExiste(vetorUsuario, login){
+function usuarioExiste(vetorUsuario, email){
     let verificador = false;
     for(let usuario of vetorUsuario){
-        console.log(usuario)
-        if(usuario.login === login){
+        if(usuario.email === email){
             verificador = true;
         }
     }

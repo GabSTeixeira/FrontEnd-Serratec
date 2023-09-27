@@ -10,19 +10,18 @@
 </head>
 <body>
     <div class="caixa">
-        <form id="form-cadastro" onsubmit="cadastrar()">
+        <form id="form-cadastro" autocomplete="off" onsubmit="cadastrar()">
             <h2>cadastro</h2>
 
             <img class="pokebola" src="../conteudo/imgs/pokebola-gif.webp" alt="pokebola-gif">
 
             <div class="campo">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" pattern="[Za-z-A]+" required>
+                <input type="text" id="nome" pattern="[A-Za-z]+" required>
             </div>
-
             <div class="campo">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" pattern="[Za-z-A]+" required>
+                <input type="text" id="email" pattern="^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$" required>
             </div>
             <div class="campo">
                 <label for="senha">Senha</label>

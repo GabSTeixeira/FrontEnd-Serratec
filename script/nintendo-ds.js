@@ -1,3 +1,8 @@
+
+
+
+
+
 //nintendo
 const nintendo = document.querySelector("#body")
 
@@ -16,7 +21,7 @@ const yellowBtn = document.getElementById('yellow-btn')
 //start e select
 const start = document.getElementById('start-btn')
 const select = document.getElementById('select-btn')
-
+const home = document.getElementById('home-btn')
 //telas
 const telaCima = document.getElementById('top-screen')
 const telaBaixo = document.getElementById('bottom-screen')
@@ -36,7 +41,7 @@ const luz = document.getElementById('light-3')
 //============== Eventos ==============
 
 //evento que liga a tela
-start.addEventListener('click', () => {
+home.addEventListener('click', () => {
     telaCima.classList.toggle('off')
     telaBaixo.classList.toggle('off')
 
@@ -45,11 +50,40 @@ start.addEventListener('click', () => {
 //se a tela de cima tiver a classe 'off' o audio pause senao ele toca
     if (telaCima.classList.contains('off')) {
         audio.pause()
+        audio.currentTime = 0
+
+        imgPokemon.style.display = 'none'
+        nomePokemon.style.display = 'none'
         luz.style.background = '#7a7e7d'
+
+        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg')"
+        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif')"
+
+        telaCima.style.backgroundSize = 'cover'
+        telaBaixo.style.backgroundSize = 'cover'
+
     } else {
         audio.play()
         luz.style.background = 'green'
     }    
+})
+
+//evento que inicia a api
+start.addEventListener('click', () => {
+    if (!telaCima.classList.contains('off')) {
+        
+        imgPokemon.style.display = 'block'
+        nomePokemon.style.display = 'block'
+
+        telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
+        telaCima.style.backgroundSize = 'cover'
+        
+        telaBaixo.style.background = "none"
+        telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
+        telaBaixo.style.backgroundSize = 'cover'
+
+        exibirPokemon("1");
+    }
 })
 
 //evento que troca as cores do nintendo
@@ -62,9 +96,19 @@ setaUp.addEventListener('click', () => {
     aumentarVolume()
 })
 
+//evento de clique na seta pra direita
+setaRight.addEventListener('click', () => {
+   proxPokemon()
+})
+
 //evento de clique na seta pra baixo
 setaDown.addEventListener('click', () => {
     diminuirVolume()
+})
+
+//evento de clique na seta pra esquerda
+setaLeft.addEventListener('click', () => {
+    prevPokemon()
 })
 
 //================ Funções ================ 

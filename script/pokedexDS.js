@@ -1,77 +1,79 @@
+
+
 if(localStorage.getItem("acesso") === "false"){
     window.location.href = "../index.html"
 }
 
-function deslogar(){
-    var btnDeslogar = document.getElementById("btnDeslogar")
+const imgPokemon = document.getElementById("imgPokemon");
+const nomePokemon = document.getElementById("nomePokemon");
 
-    localStorage.setItem("acesso", false);
-    alert('Saindo')
-    return window.location.href = "../index.html"
-}
+//const poderNm = document.getElementById("poderNm");
+//const poderBox = document.getElementById("poderBox");
+//const input = document.getElementById("searchPokemon");
+//const form = document.getElementById("form")
 
 
-//--------------------------------------------------------
+let idPokemonBuscado = 1
 
-var imgPokemon = document.getElementById("imgPokemon");
-var nmPokemon = document.getElementById("nmPokemon");
-var poderNm = document.getElementById("poderNm");
-var poderBox = document.getElementById("poderBox");
-var input = document.getElementById("searchPokemon");
-var form = document.getElementById("form")
-
-let searchPokemon = 1
-
-const fetchPokemon = async (pokemon) => {
+const consultarPokemon = async (pokemon) => {
     const API = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
     if(API.status == 200){
-        const data = await API.json();
+        const data = await API.json()
         return data
     }
 }
 
-const rederPokemon = async (pokemon) =>{
-    /*
-fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-.then(response => response.json())
-.then(teste => {
-    console.log(teste)
-*/
-    poderNm.innerHTML =  ``;
-    poderBox.innerHTML = ``
+const exibirPokemon = async (pokemon) =>{
 
-    const data = await fetchPokemon(pokemon);
+    //poderNm.innerHTML =  ``
+    //poderBox.innerHTML = ``
+
+    const data = await consultarPokemon(pokemon);
 
     if(data){
-        console.log(data)
-    nmPokemon.innerHTML = `<h1>${data.name}</h1>`;
-    //id.innerHTML = `#${teste.id}`;
-    imgPokemon.src = data['sprites']['versions']['generation-v']['black-white']
-    ['animated']['front_default'];
+        
+        nomePokemon.innerHTML = `<h3>${data.id} - ${data.name}</h3>`;
+        imgPokemon.src = data['sprites']['versions']['generation-v']['black-white']
+        ['animated']['front_default'];
+        
+        idPokemonBuscado = data.id
+        //for(let poder of data.stats){
     
-    for(const poder of data.stats){
-       /*for(var i = 0; i < poder.stat.name.length; i++){
-            console.log(poder.stat.name)
-            if(poder.stat.name[i]){
-                var nmPoder = "atk"
-            }
-        }*/
-   
-        var nmPoder = poder.stat.name;
-        const vlPoder = poder.base_stat
+        // const nmPoder = poder.stat.name;
+        // const vlPoder = poder.base_stat
 
-        poderNm.innerHTML +=  `<p>${nmPoder}:</p>`;
-        poderBox.innerHTML += `<p style ="background: grey; width: ${vlPoder}%;">${vlPoder}</p>`
+        // poderNm.innerHTML +=  `<p>${nmPoder}:</p>`;
+        // poderBox.innerHTML += `<p style ="background: grey; width: ${vlPoder}%;">${vlPoder}</p>`
     }
-}else{
-}
-//})
+     
 }
 
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    return rederPokemon(input.value.toLowerCase());
-})
+function proxPokemon () {
+   
+    let number = parseInt(idPokemonBuscado)
+    
+    if (number < 649 ) {
+        exibirPokemon((number + 1) + "")
+    } else {
+        exibirPokemon("1")
+    }
+    
+}
 
+function prevPokemon () {
+    
+    let number = parseInt(idPokemonBuscado)
+    
+    if (number > 1 ) {
+        exibirPokemon((number - 1) + "")
+    } else {
+        exibirPokemon("649")
+    }
+    
+}
 
-rederPokemon(searchPokemon);
+function deslogar(){
+    localStorage.setItem("acesso", false);
+    alert('Saindo')
+    return window.location.href = "../index.html"
+}

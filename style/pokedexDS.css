@@ -86,6 +86,10 @@ body {
 }
 
 #top-screen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 	width: 350px;
 	height: 112px;
 	position: relative;
@@ -97,6 +101,19 @@ body {
 	border: 15px solid #eaebeb; 
 	border-radius: 5px;
 	box-shadow: 0px 0px 2px 2px #dbdede;
+}
+
+#top-screen img {
+	
+	height: 100%;
+	width: 50%;
+	
+	/* position: relative;
+	bottom: 40%;
+	left: 30%;
+	
+	transform: translate(-63%,20%);
+	height: 60%; */
 }
 
 #bottom-screen {
@@ -273,16 +290,20 @@ body {
     border-bottom: 2px solid #0000004f;
 }
 
-
 #home-btn {
 	width: 48px;
 	height: 25px;
 	position: relative;
 	top: 15px;
 	left: 135px;
-	background-color: #e4e5e5;
-	border: 2px solid #dbdede; 
+	background-color: #555858;
+	border: 2px solid #161616; 
 	border-radius: 10px;
+	cursor: pointer;	
+}
+
+#home-btn:active {
+	transform: scale(0.9);
 }
 
 #color-button-holder {
