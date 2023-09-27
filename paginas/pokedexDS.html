@@ -35,6 +35,7 @@
 			</div>
 			<!-- tela de cima -->
 			<div id="top-screen" class="off">
+				<div class="tipoIcon" style="display: none;"></div>
 				
 				<img id="imgPokemon" src="#" alt="pokemon" style="display: none;">
 				<div id="nomePokemon" class="" style="display: none;"></div>
@@ -76,10 +77,11 @@
                 <!-- tela de baixo -->
 				<div id="bottom-screen" class="off">
 					<form id="formTelaBaixo">
-						<input style="visibility: hidden;" id="pesquisaPokemon" type="search" placeholder="Digite um nome ou numero">
+						<input style="visibility: hidden;" autocomplete="off" id="pesquisaPokemon" type="search" placeholder="Digite um nome ou numero">
 					</form>
 					<div id="infoTelaBaixo">
-
+						<!-- <p id="pokemon_altura"></p>
+						<p id="pokemon_peso"></p> -->
 					</div>	
 				</div>
 				<!-- botao do pad -->

@@ -27,6 +27,7 @@ const telaCima = document.getElementById('top-screen')
 const telaBaixo = document.getElementById('bottom-screen')
 const formTelaBaixo = document.getElementById('formTelaBaixo')
 
+
 //input de cor
 const color = document.querySelector("#color")
 
@@ -84,14 +85,18 @@ start.addEventListener('click', () => {
         //faz aparecer as tela de cima e de baixo
         imgPokemon.style.display = 'block'
         nomePokemon.style.display = 'block'
+        tipoIcon.style.display = 'block'
 
         //define a nova imagem de cima e de baixo
         telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
         telaCima.style.backgroundSize = 'cover'
         
-        telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
+        //telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
+        telaBaixo.style.background = 'linear-gradient(to bottom, rgb(43, 42, 42), rgb(27, 27, 27))'
         telaBaixo.style.backgroundSize = 'cover'
 
+        //telaBaixo.style.border = "2px solid red"
+        telaBaixo.style.boxShadow = "inset 0 0 10px black"
         //mostrar a pesquisa e os stats
         pesquisaPokemon.style.visibility = 'visible'
 
