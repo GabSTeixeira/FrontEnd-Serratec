@@ -15,9 +15,6 @@ body {
   padding: 0;
 }
 
-.btn {
-  width: 30% !important;
-}
 
 a {
   color: #e0131d;
@@ -98,7 +95,7 @@ body {
 }
 
 .campo input {
-  width: 85%;
+  width: 80%;
   background-color: transparent;
   border: none;
   border-bottom: 2px solid white;
@@ -278,20 +275,11 @@ body {
   }
 }
 
-
 /* mobile */
 @media screen and (max-width: 768px) {
 
   .caixa, .campo input {
     width: 80%;
-  }
-
-  .letters {
-    margin-left: -28px;
-  }
-
-  .btn {
-    width: 50% !important;
   }
 
   #form-cadastro .letters {
