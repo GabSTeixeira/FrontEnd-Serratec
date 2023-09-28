@@ -2,58 +2,39 @@ if(localStorage.getItem("acesso") === "false"){
     window.location.href = "../index.html"
 }
 
+
 const imgPokemon = document.getElementById("imgPokemon");
 const nomePokemon = document.getElementById("nomePokemon");
+const pokemonAltura = document.getElementById('pokemon_altura');
+const pokemonPeso = document.getElementById('pokemon_peso');
 
-const pesquisaPokemon = document.getElementById("pesquisaPokemon")
 const bottomScreen = document.getElementById("bottom-screen")
 const infoTelaBaixo = document.getElementById('infoTelaBaixo');
 
 const tipoIcon = document.querySelector('.tipoIcon');
+const pesquisaPokemon = document.getElementById("pesquisaPokemon")
 
-const pokemonAltura = document.getElementById('pokemon_altura');
-const pokemonPeso = document.getElementById('pokemon_peso');
 
 const coresTeste = {
-    fire: 'rgb(255, 69, 0)', // Laranja para Fire
-    grass: '#4CAF50',        // Verde para Grass
-    electric: '#FFD700',     // Amarelo para Electric
-    water: '#70ffea',        // Azul-água para Water
-    ground: '#8B4513',       // Marrom-escuro para Ground
-    rock: '#A9A9A9',         // Cinza para Rock
-    fairy: '#FF69B4',        // Rosa para Fairy
-    poison: '#B85EFC',       // Roxo escuro para Poison
-    bug: '#94ecbe',          // Verde claro para Bug
-    dragon: '#FF4500',       // Laranja para Dragon
-    psychic: '#7c7db6',      // Azul-roxo para Psychic
-    flying: '#F0E68C',       // Amarelo-claro para Flying
-    fighting: '#696969',     // Cinza escuro para Fighting
-    normal: '#D3D3D3',       // Cinza claro para Normal
-    ice: '#00BFFF',          // Azul para Ice
-    dark: '#4f7ecf',         // Azul-escuro para Dark
-    ghost: '#483D8B',        // Azul-escuro para Ghost
-    steel: '#4682B4',        // Azul para Steel
-  }; 
-const cores = {
-    fire: 'rgba(255, 69, 0, 0.5)',          // Laranja para Fire
-    grass: 'rgba(76, 175, 80, 0.5)',        // Verde para Grass
-    electric: 'rgba(255, 215, 0, 0.5)',     // Amarelo para Electric
-    water: 'rgba(112, 255, 234, 0.5)',      // Azul-água para Water
-    ground: 'rgba(139, 69, 19, 0.5)',       // Marrom-escuro para Ground
-    rock: 'rgba(169, 169, 169, 0.5)',       // Cinza para Rock
-    fairy: 'rgba(255, 105, 180, 0.5)',      // Rosa para Fairy
-    poison: 'rgba(184, 94, 252, 0.5)',      // Roxo escuro para Poison
-    bug: 'rgba(148, 236, 190, 0.5)',        // Verde claro para Bug
-    dragon: 'rgba(255, 69, 0, 0.5)',        // Laranja para Dragon
-    psychic: 'rgba(124, 125, 182, 0.5)',    // Azul-roxo para Psychic
-    flying: 'rgba(240, 230, 140, 0.5)',     // Amarelo-claro para Flying
-    fighting: 'rgba(105, 105, 105, 0.5)',   // Cinza escuro para Fighting
-    normal: 'rgba(211, 211, 211, 0.5)',     // Cinza claro para Normal
-    ice: 'rgba(0, 191, 255, 0.5)',          // Azul para Ice
-    dark: 'rgba(79, 126, 207, 0.5)',        // Azul-escuro para Dark
-    ghost: 'rgba(72, 61, 139, 0.5)',        // Azul-escuro para Ghost
-    steel: 'rgba(70, 130, 180, 0.5)'        // Azul para Steel
-};
+    normal: 'rgba(168, 167, 122,',
+    fire: 'rgba(238, 129, 48,',
+    water: 'rgba(99, 144, 240,',
+    electric: 'rgba(247, 208, 2,',
+    grass: 'rgba(122, 199, 76,',
+    ice: 'rgba(150, 217, 214,',
+    fighting: 'rgba(194, 46, 2,',
+    poison: 'rgba(163, 62, 161,',
+    ground: 'rgba(226, 191, 101,',
+    flying: 'rgba(169, 143, 243,',
+    psychic: 'rgba(249, 85, 135,',
+    bug: 'rgba(166, 185, 26,',
+    rock: 'rgba(182, 161, 54,',
+    ghost: 'rgba(115, 87, 151,',
+    dragon: 'rgba(111, 53, 252,',
+    dark: 'rgba(112, 87, 70,',
+    steel: 'rgba(183, 183, 206,',
+    fairy: 'rgba(214, 133, 161,'
+}
 
 let idPokemonBuscado = 1
 
@@ -71,36 +52,44 @@ const exibirPokemon = async (pokemon) =>{
 
     if(data && data.id < 650 && data.id > 0){
         
-        nomePokemon.innerHTML = `<h2 style="margin-top: 10px">#${data.id}  - ${data.name}</h2>`;
+        nomePokemon.innerHTML = `<h2 id="nmPokemon" style="margin-top: 10px">#${data.id}  - ${data.name}</h2>`;
         imgPokemon.src = data['sprites']['versions']['generation-v']['black-white']
         ['animated']['front_default'];
 
         let tipos = data.types.map(tp =>tp.type.name)
-        
-        const color = cores[tipos[0]]
+        const cor = coresTeste[tipos[0]]  
         
         if(tipos.length > 1){
             tipos = `${tipos[0]} / ${tipos[1]}`
         }
 
-        tipoIcon.style.backgroundColor = `${color}`
-        tipoIcon.style.boxShadow = `2px 2px 20px ${color}`
-        bottomScreen.style.background = `${color}`
-        bottomScreen.style.boxShadow = `inset 0 0 20px ${color}`
-        //bottomScreen.style.border = `2px solid ${color}`
-        //bottomScreen.style.borderTop = "none"
+        tipoIcon.style.backgroundColor = `${cor} 0.8)`
+        tipoIcon.style.boxShadow = `2px 2px 20px ${cor} 1)`
+        bottomScreen.style.boxShadow = `inset 0 0 20px ${cor} 1)`
+        bottomScreen.style.border = `2px solid ${cor} 1)`
+        bottomScreen.style.borderTop = "none"
 
-        //style = "background: black; border-radius: 40%; padding: 10px"
+        bottomScreen.style.backgroundImage = `linear-gradient(to bottom, ${cor} 0.1), ${cor} 0.8)), url(../conteudo/imgs/backgroundBottonScreen.jpg)`
+
         infoTelaBaixo.innerHTML =  `
-        <div id="infoPokemon" style="  display: flex; justify-content: space-around; width: 100%">
-        <div > <p class="infoPokemonTeste"> Peso</p> <h3 class="type"> ${data.weight/10} kg </h3></div>
-        <div> <p class="infoPokemonTeste"> Altura</p> <h3 class="type"> ${data.height/10} m</h3></div> 
-        </div >
-        <div style="margin-top: 20px"> <p class="infoPokemonTeste"> Tipo:</p> <h3 class="type">${tipos}</h3></div>
+            <div id="infoPokemon" style="  display: flex; justify-content: space-around; width: 100%">
+                <div> 
+                    <p class="infoPokemonTeste"> Peso</p> 
+                    <h3 class="type"> ${data.weight/10} kg </h3>
+                </div>
+                <div> 
+                    <p class="infoPokemonTeste"> Altura</p> 
+                    <h3 class="type"> ${data.height/10} m</h3>
+                </div> 
+            </div >
+
+            <div style="margin-top: 20px"> 
+                <p class="infoPokemonTeste"> Tipo:</p> 
+                <h3 class="type">${tipos}</h3>
+            </div>
         `
         idPokemonBuscado = data.id
-    }
-     
+    }   
 }
 
 function proxPokemon () {

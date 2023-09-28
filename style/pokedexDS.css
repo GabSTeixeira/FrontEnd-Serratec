@@ -126,7 +126,7 @@ body {
 	background-size: cover;
 	color:var(--brancoBorda);border-top: -10%;
 	border-radius: 6px;
-	text-shadow: 2px 2px 4px var(--blackShadow)	;
+	text-shadow: 2px 2px 4px var(--blackShadow);
 }
 
 #bottom-screen-holder {
@@ -486,11 +486,27 @@ body {
 }
 
 .type {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 0.2rem 0.5rem;
     border-radius: 0.6rem;
     display: block;
     margin: 0.25rem;
+	box-shadow: 1px 1px 3px rgb(26, 25, 25);
+}
+
+#nomePokemon {
+	text-align: center;
+	width: 70%;
+  }
+
+#nmPokemon{
+	color: rgb(212, 212, 212);
+	background-color: rgba(0, 0, 0, 0.411);
+	text-align: center;
+	padding: 0.2rem 0.5rem;
+    border-radius: 0.6rem;
+    display: block;
+	box-shadow: 2px 2px 3px rgb(26, 25, 25);
 }
 
 /* icone de opçoes */
