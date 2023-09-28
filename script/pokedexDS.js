@@ -77,12 +77,12 @@ const exibirPokemon = async (pokemon) =>{
         }
 
         tipoIcon.style.backgroundColor = `${cor} 0.8)`
-        tipoIcon.style.boxShadow = `2px 2px 20px ${cor} 1)`
-        bottomScreen.style.boxShadow = `inset 0 0 20px ${cor} 1)`
-        bottomScreen.style.border = `2px solid ${cor} 1)`
-        bottomScreen.style.borderTop = "none"
+        tipoIcon.style.boxShadow = `0 0 19px ${cor} 1)`
+        bottomScreen.style.boxShadow = `inset 0 0 20px ${cor} 0.7)`
+        //bottomScreen.style.border = `2px solid ${cor} 1)`
+        //bottomScreen.style.borderTop = "none"
 
-        bottomScreen.style.backgroundImage = `linear-gradient(to bottom, ${cor} 0.1), ${cor} 0.8)), url(../conteudo/imgs/backgroundBottonScreen.jpg)`
+        bottomScreen.style.backgroundImage = `linear-gradient(to bottom, ${cor} 0.1), ${cor} 0.6)), url(../conteudo/imgs/backgroundBottonScreen.jpg)`
 
         infoTelaBaixo.innerHTML =  `
             <div id="infoPokemon" style="  display: flex; justify-content: space-around; width: 100%">
