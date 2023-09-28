@@ -11,8 +11,6 @@
 	--blackShadow: rgba(0, 0, 0, 0.664);
 	--blackAngle: #0000004f;
 	--white: #edf1f0;
-<<<<<<< HEAD
-=======
 	--brancoBorda: #eaebeb;
 	--brancoShadow: #dbdede;
 	--cinzaBack: #ffffff9b;
@@ -23,7 +21,6 @@
 	--color04: #BF9106;
 	--color05: #F2B807;
 	--vermelho:#e0131d;
->>>>>>> 1fecd70c21a8030f0b4c2fa064f9d9f2e000a5f6
 }
 
 body {
@@ -256,19 +253,11 @@ body {
 	height:75px;
     margin-left: -5px;
     transform: scale(1.2);
-<<<<<<< HEAD
-    background-color: #e4e5e5;
-	box-shadow: 0px 0px 2px 2px #dbdede;
-	position:relative;
-	top: 10px;
-	left: 55px;
-=======
     background-color: var(--brancoBorda);
 	position:relative;
 	top: 10px;
 	left: 55px;
 	box-shadow: 0px 0px 2px 2px var(--brancoShadow);
->>>>>>> 1fecd70c21a8030f0b4c2fa064f9d9f2e000a5f6
 }
 
 #d-pad:before  {
