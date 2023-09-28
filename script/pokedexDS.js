@@ -78,7 +78,7 @@ const exibirPokemon = async (pokemon) =>{
         ['animated']['front_default'];
 // seta o tipo do pokeon nas variaveis tp1 ou em caso de dois tipos em tp1 e tp2
         let tipos = data.types.map(tp =>tp.type.name)
-<<<<<<< HEAD
+
         let tp1 = tipos[0]
         let tp2 = tipos[1]
         const color = cores[tp1]
@@ -95,7 +95,7 @@ const exibirPokemon = async (pokemon) =>{
         
         if(tipos.length > 1){
             tipos = `${tipos[0]} / ${tipos[1]}`
->>>>>>> trabalhoAPI/developer
+
         }
 
         tipoIcon.style.backgroundColor = `${color}`
@@ -148,4 +148,5 @@ function deslogar(){
     localStorage.setItem("acesso", false);
     alert('Saindo')
     return window.location.href = "../index.html"
+}
 }
