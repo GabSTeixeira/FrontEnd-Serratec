@@ -561,7 +561,7 @@ body {
 #options #avatar {
 	width: 50%;
 	height: 40%;
-	background: white url(../conteudo/imgs/avatar-masculino.webp);
+	background: white url(../conteudo/imgs/avatar-masculino.webp) center;
 	background-size: cover;
 	border: 3px solid var(--black);
 	border-radius: 50%;

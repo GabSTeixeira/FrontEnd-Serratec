@@ -32,8 +32,11 @@ const color = document.getElementById("color")
 // alto-falantes
 const altoEsquerdo = document.getElementById('right-speaker')
 
-// sound-track
+// audios
 const audio = document.getElementById('sound-track')
+const som_click = document.getElementById('sound-click')
+const som_btn = document.getElementById('sound-btn')
+const teclado = document.getElementById('teclado')
 
 // luz de ativação
 const luz = document.getElementById('light-3')
@@ -75,11 +78,14 @@ let costas = false
 
 // evento que liga a tela
 home.addEventListener('click', () => {
+    som_btn.play()
+
     telaCima.classList.toggle('off')
     telaBaixo.classList.toggle('off')
 
     // volume audio padrão
     audio.volume = .2
+    som_click.volume = .7
     // se a tela de cima tiver a classe 'off' o audio pausa senao ele toca
     if (telaCima.classList.contains('off')) {
         // para e reseta a musica
@@ -96,8 +102,7 @@ home.addEventListener('click', () => {
 
         pesquisaPokemon.style.visibility = 'hidden'
 
-        // faz as imagens da tela de cima e da tela de baixo se tornarem
-        // as padrões
+        // faz as imagens da tela de cima e da tela de baixo se tornarem as padrões
         telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg') center"
         telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif') center "
 
@@ -118,6 +123,7 @@ home.addEventListener('click', () => {
 
 // evento que inicia a api
 start.addEventListener('click', () => {
+    som_btn.play()
     
     // verifica se a tela de cima esta ligada
     if (!telaCima.classList.contains('off')) {
@@ -141,20 +147,30 @@ start.addEventListener('click', () => {
         // mostrar a pesquisa e os stats
         pesquisaPokemon.style.visibility = 'visible'
 
-
         apiStart = true
         exibirPokemon("1");
     }
 })
 
+// botao de select
+select.addEventListener('click', () => {
+    som_btn.play()
+})
+
 // evento que abre as opcoes de avatar
 avatarAtual.addEventListener('click', () => {
+
+    som_btn.play()
+
     avatarOptions.classList.toggle('open')
 })
 
 // evento que troca o avatar para masculino
 avatarMasculino.addEventListener('click', () => {
-    avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-masculino.webp)'
+
+    som_btn.play()
+
+    avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-masculino.webp) center'
     avatarAtual.style.backgroundSize = 'cover'
 
     avatarOptions.classList.toggle('open')
@@ -162,7 +178,10 @@ avatarMasculino.addEventListener('click', () => {
 
 // evento que troca o avatar para feminino
 avatarFeminino.addEventListener('click', () => {
-    avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-feminino01.webp)'
+
+    som_btn.play()
+
+    avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-feminino01.webp) center'
     avatarAtual.style.backgroundSize = 'cover'
 
     avatarOptions.classList.toggle('open')
@@ -181,93 +200,110 @@ color.addEventListener("input", () => {
     body.style.background = color.value
 })
 
+formTelaBaixo.addEventListener("input", () => {
+    som_btn.play()
+})
+
+// botao A
+yellowBtn.addEventListener('click', () => {
+
+    som_btn.play()
+
+    if(dsLigado && apiStart) {
+        
+        if (!shiny) {
+            shiny=true   
+        } else {
+            shiny=false
+        }
+    
+        exibirPokemonVersoes(shiny, costas)
+    }
+})
+
+// botao X
+blueBtn.addEventListener('click', () => {
+
+    som_btn.play()
+
+    if(dsLigado && apiStart) {
+
+        if (costas) {
+            costas = false
+        } else {
+            costas = true
+        }
+
+        exibirPokemonVersoes(shiny,costas)
+    }
+})
+
+// botao Y
+greenBtn.addEventListener('click', () => {
+    
+    som_btn.play()
+
+    if(dsLigado && apiStart) {
+
+        if (costas) {
+            costas = false
+        } else {
+            costas = true
+        }
+
+        exibirPokemonVersoes(shiny,costas)
+    }
+})
+
+// botao B
+redBtn.addEventListener('click', () => {
+
+    som_btn.play()
+
+    if(dsLigado && apiStart) {
+        
+        if (!shiny) {
+            shiny=true   
+        } else {
+            shiny=false
+        }
+    
+        exibirPokemonVersoes(shiny, costas)
+    }
+})
+
 // evento de clique na seta pra cima
 setaUp.addEventListener('click', () => {
+    som_click.play()
+    
     if (dsLigado) {
         console.log(dsLigado)
         aumentarVolume()
     }
 })
 
-
-yellowBtn.addEventListener('click', () => {
-
-    if(dsLigado && apiStart) {
-        
-        if (!shiny) {
-            shiny=true   
-        } else {
-            shiny=false
-        }
-    
-        exibirPokemonVersoes(shiny, costas)
-    }
-})
-
-blueBtn.addEventListener('click', () => {
-
-    if(dsLigado && apiStart) {
-
-        if (costas) {
-            costas = false
-        } else {
-            costas = true
-        }
-
-        exibirPokemonVersoes(shiny,costas)
-    }
-
-})
-
-greenBtn.addEventListener('click', () => {
-    if(dsLigado && apiStart) {
-
-        if (costas) {
-            costas = false
-        } else {
-            costas = true
-        }
-
-        exibirPokemonVersoes(shiny,costas)
-    }
-})
-
-redBtn.addEventListener('click', () => {
-    if(dsLigado && apiStart) {
-        
-        if (!shiny) {
-            shiny=true   
-        } else {
-            shiny=false
-        }
-    
-        exibirPokemonVersoes(shiny, costas)
-    }
-})
-
-
-
-
-
 // evento de clique na seta pra direita
 setaRight.addEventListener('click', () => {
-    
+    som_click.play()
+
     if (dsLigado && apiStart) {
-        console.log(dsLigado)
         proxPokemon()
     }
 })
 
 // evento de clique na seta pra baixo
 setaDown.addEventListener('click', () => {
+    som_click.play()
+    
     if (dsLigado) {
-        console.log(dsLigado)
         diminuirVolume()
     }
 })
 
 // evento de clique na seta pra esquerda
 setaLeft.addEventListener('click', () => {
+    som_click.play()
+
     if (dsLigado && apiStart) {
         prevPokemon()
     }
@@ -275,12 +311,16 @@ setaLeft.addEventListener('click', () => {
 
 // evento que fecha o menu
 btnX.addEventListener('click', () => {
+    som_btn.play()
+
     menu.classList.remove('open')
     avatarOptions.classList.remove('open')
 })
 
 // evento que abre o menu
 btnIcon.addEventListener('click', () => {
+    som_btn.play()
+
     menu.classList.add('open')
 })
 
