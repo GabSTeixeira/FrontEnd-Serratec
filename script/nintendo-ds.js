@@ -1,87 +1,90 @@
 
 //============== variaveis ==============
 
-//nintendo
-const nintendo = document.querySelector("#body")
+// body
+const body = document.querySelector("#body")
 
-//setas
+// setas
 const setaUp = document.querySelector(".fa-angle-up")
 const setaRight = document.querySelector(".fa-angle-right")
 const setaLeft = document.querySelector(".fa-angle-left")
 const setaDown = document.querySelector(".fa-angle-down")
 
-//botoes
+// botoes
 const blueBtn = document.getElementById('blue-btn')
 const greenBtn = document.getElementById('green-btn')
 const redBtn = document.getElementById('red-btn')
 const yellowBtn = document.getElementById('yellow-btn')
 
-//start e select
+// start e select
 const start = document.getElementById('start-btn')
 const select = document.getElementById('select-btn')
 const home = document.getElementById('home-btn')
 
-//telas
+// telas
 const telaCima = document.getElementById('top-screen')
 const telaBaixo = document.getElementById('bottom-screen')
 const formTelaBaixo = document.getElementById('formTelaBaixo')
 
-//input de cor
+// input de cor
 const color = document.getElementById("color")
 
-//alto-falantes
+// alto-falantes
 const altoEsquerdo = document.getElementById('right-speaker')
 
-//sound-track
+// sound-track
 const audio = document.getElementById('sound-track')
 
-//luz de ativação
+// luz de ativação
 const luz = document.getElementById('light-3')
 
-//botao de sair
+// botao de sair
 const btnX = document.querySelector('.fa-x')
 
-//menu
+// menu
 const menu = document.getElementById('menu')
 
-//icon para abrir menu
+// icon para abrir menu
 const btnIcon = document.getElementById('btn-icon')
 
-//informacoes do pokemon
+// informacoes do pokemon
 const infoPokemon = document.getElementById('infoTelaBaixo')
 
-//tipo do pokemon
+// tipo do pokemon
 const tipoPokemon = document.querySelector(".tipoIcon")
 
-//quadro de avatares
+// quadro de avatares
 const avatarOptions = document.getElementById('avatar-options')
 
-//avatar atual
+// avatar atual
 const avatarAtual = document.getElementById('avatar')
 const nomeUsuario = document.getElementById('nameUser')
 
-//opções de avatares
+// opções de avatares
 const avatarMasculino = document.getElementById('avatarMale')
 const avatarFeminino = document.getElementById('avatarFemale')
 
-let volumeAtual = 2
+// variaveis globais
+let volumeAtual
+let apiStart = false
+let dsLigado = false
 
 //============== Eventos ==============
 
-//evento que liga a tela
+// evento que liga a tela
 home.addEventListener('click', () => {
     telaCima.classList.toggle('off')
     telaBaixo.classList.toggle('off')
 
-//  volume audio padrão 
+    // volume audio padrão
     audio.volume = .2
-//se a tela de cima tiver a classe 'off' o audio pause senao ele toca
+    // se a tela de cima tiver a classe 'off' o audio pausa senao ele toca
     if (telaCima.classList.contains('off')) {
-        //para e reseta a musica
+        // para e reseta a musica
         audio.pause()
         audio.currentTime = 0
 
-        //esconde todas as informações
+        // esconde todas as informações
         imgPokemon.style.display = 'none'
         nomePokemon.style.display = 'none'
         infoPokemon.style.display = 'none'
@@ -91,51 +94,68 @@ home.addEventListener('click', () => {
 
         pesquisaPokemon.style.visibility = 'hidden'
 
+<<<<<<< HEAD
         telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg') center"
         telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif') center "
+=======
+        // faz as imagens da tela de cima e da tela de baixo se tornarem
+        // as padrões
+        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg')"
+        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif')"
+>>>>>>> 1fecd70c21a8030f0b4c2fa064f9d9f2e000a5f6
 
         telaCima.style.backgroundSize = 'cover'
         telaBaixo.style.backgroundSize = 'cover'
 
+        apiStart = false
+        dsLigado = false
+
     } else {
         audio.play()
+
+        volumeAtual = 2
+        dsLigado = true
         luz.style.background = 'green'
     }    
 })
 
-//evento que inicia a api
+// evento que inicia a api
 start.addEventListener('click', () => {
+    
+    // verifica se a tela de cima esta ligada
     if (!telaCima.classList.contains('off')) {
-        //faz aparecer as tela de cima e de baixo
+        // faz aparecer as tela de cima e de baixo
         imgPokemon.style.display = 'block'
         nomePokemon.style.display = 'block'
         tipoIcon.style.display = 'block'
         infoPokemon.style.display = 'block'
         tipoPokemon.style.display = 'block'
 
-        //define a nova imagem de cima e de baixo
+        // define a nova imagem de cima e de baixo
         telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
         telaCima.style.backgroundSize = 'cover'
         
-        //telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
+        // telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
         telaBaixo.style.background = 'linear-gradient(to bottom, rgb(43, 42, 42), rgb(27, 27, 27))'
         telaBaixo.style.backgroundSize = 'cover'
 
-        //telaBaixo.style.border = "2px solid red"
+        // telaBaixo.style.border = "2px solid red"
         telaBaixo.style.boxShadow = "inset 0 0 10px black"
-        //mostrar a pesquisa e os stats
+        // mostrar a pesquisa e os stats
         pesquisaPokemon.style.visibility = 'visible'
 
+
+        apiStart = true
         exibirPokemon("1");
     }
 })
 
-//evento que abre as opcoes de avatar
+// evento que abre as opcoes de avatar
 avatarAtual.addEventListener('click', () => {
     avatarOptions.classList.toggle('open')
 })
 
-//evento que troca o avatar para masculino
+// evento que troca o avatar para masculino
 avatarMasculino.addEventListener('click', () => {
     avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-masculino.webp)'
     avatarAtual.style.backgroundSize = 'cover'
@@ -143,7 +163,7 @@ avatarMasculino.addEventListener('click', () => {
     avatarOptions.classList.toggle('open')
 })
 
-//evento que troca o avatar para feminino
+// evento que troca o avatar para feminino
 avatarFeminino.addEventListener('click', () => {
     avatarAtual.style.background = 'white url(../conteudo/imgs/avatar-feminino01.webp)'
     avatarAtual.style.backgroundSize = 'cover'
@@ -156,40 +176,53 @@ formTelaBaixo.addEventListener("submit", (event) => {
     event.preventDefault()
     
     exibirPokemon(pesquisaPokemon.value)
+    pesquisaPokemon.value = ""
 })
 
-//evento que troca as cores do nintendo
+// evento que troca as cores do body
 color.addEventListener("input", () => {
-    nintendo.style.background = color.value
+    body.style.background = color.value
 })
 
-//evento de clique na seta pra cima
+// evento de clique na seta pra cima
 setaUp.addEventListener('click', () => {
-    aumentarVolume()
+    if (dsLigado) {
+        console.log(dsLigado)
+        aumentarVolume()
+    }
 })
 
-//evento de clique na seta pra direita
+// evento de clique na seta pra direita
 setaRight.addEventListener('click', () => {
-    proxPokemon()
+    
+    if (dsLigado && apiStart) {
+        console.log(dsLigado)
+        proxPokemon()
+    }
 })
 
-//evento de clique na seta pra baixo
+// evento de clique na seta pra baixo
 setaDown.addEventListener('click', () => {
-    diminuirVolume()
+    if (dsLigado) {
+        console.log(dsLigado)
+        diminuirVolume()
+    }
 })
 
-//evento de clique na seta pra esquerda
+// evento de clique na seta pra esquerda
 setaLeft.addEventListener('click', () => {
-    prevPokemon()
+    if (dsLigado && apiStart) {
+        prevPokemon()
+    }
 })
 
-//evento que fecha o menu
+// evento que fecha o menu
 btnX.addEventListener('click', () => {
     menu.classList.remove('open')
     avatarOptions.classList.remove('open')
 })
 
-//evento que abre o menu
+// evento que abre o menu
 btnIcon.addEventListener('click', () => {
     menu.classList.add('open')
 })
@@ -198,7 +231,7 @@ btnIcon.addEventListener('click', () => {
 
 buscarNomeUsuario()
 
-//função que aumenta o volume
+// função que aumenta o volume
 function aumentarVolume() {
     
     // a verificação vai de 0 até 10
@@ -212,7 +245,7 @@ function aumentarVolume() {
     }
 }
 
-//função que diminui o volume
+// função que diminui o volume
 function diminuirVolume() {
 
     if(volumeAtual > 0) {

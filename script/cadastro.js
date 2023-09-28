@@ -12,7 +12,8 @@ function cadastrar(){
     const confirmar = document.getElementById("confirmar").value;
 
     if(senha != confirmar){
-        return alert("ERRO: Senhas não coincidem!")
+        alert("ERRO: Senhas não coincidem!")
+        return false 
     }
 
     const usuario = {
@@ -27,16 +28,16 @@ function cadastrar(){
 
     let vetorUsuario = JSON.parse(localStorage.getItem('usuario'));
     if(usuarioExiste(vetorUsuario, usuario.email)){
-        return alert('ERRO: Usuario já cadastrado!')
+       
+        alert('ERRO: Usuario já cadastrado!')
+        return false 
     }
 
     vetorUsuario.push(usuario);
     localStorage.setItem("usuario", JSON.stringify(vetorUsuario));
     alert("Cadastrado com Sucesso!");
-
-
-    console.log("alouuuuuuuuuuuuuuuuuuuuuuuuuuu")
-    return window.location.href = "../index.html"
+    
+    return true
 
 };
 

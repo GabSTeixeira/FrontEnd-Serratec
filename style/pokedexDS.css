@@ -7,8 +7,23 @@
 }
 
 :root {
-	--black: black;
+	--black: #000000;
+	--blackShadow: rgba(0, 0, 0, 0.664);
+	--blackAngle: #0000004f;
 	--white: #edf1f0;
+<<<<<<< HEAD
+=======
+	--brancoBorda: #eaebeb;
+	--brancoShadow: #dbdede;
+	--cinzaBack: #ffffff9b;
+	--cinzaSombra: #595959;
+	--color01: #223059;
+	--color02: #416BBF;
+	--color03: #3E55AE;
+	--color04: #BF9106;
+	--color05: #F2B807;
+	--vermelho:#e0131d;
+>>>>>>> 1fecd70c21a8030f0b4c2fa064f9d9f2e000a5f6
 }
 
 body {
@@ -28,7 +43,7 @@ body {
 	width: 580px;
 	height: 663px;
 	background-color: var(--white);
-    border: 1px solid #00000059;
+    border: 1px solid var(--black);
 	border-radius: 30px;
     transition: .3s ease-in-out;
 	position: relative;
@@ -44,7 +59,7 @@ body {
 	height: 25px; 
 	position: relative;
 	top: 13px;
-	background: #000; 
+	background: var(--black); 
 	border-radius: 50px;
 	margin-left: 10px;
 }
@@ -83,9 +98,10 @@ body {
 	padding: 50px 0;
 	background: url(/conteudo/imgs/foto-pag-inicial.jpg) center;
 	background-size: cover;
-	border: 15px solid #eaebeb; 
+
+	border: 15px solid var(--brancoBorda); 
 	border-radius: 5px;
-	box-shadow: 0px 0px 2px 2px #dbdede;
+	box-shadow: 0px 0px 2px 2px var(--brancoShadow);
 }
 
 #top-screen img {
@@ -108,9 +124,9 @@ body {
 	margin: 0 auto;
 	background: url(/conteudo/imgs/gif-pikachu.gif) center;
 	background-size: cover;
-	color: #f1f1f1;border-top: -10%;
+	color:var(--brancoBorda);border-top: -10%;
 	border-radius: 6px;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.664);
+	text-shadow: 2px 2px 4px var(--blackShadow)	;
 }
 
 #bottom-screen-holder {
@@ -120,15 +136,15 @@ body {
 	position: relative;
 	top: -170px;
 	padding-top: 20px;
-	background-color: #eaebeb;
+	background-color: var(--brancoBorda);
 	border-radius: 15px 15px 25px 25px;
-	box-shadow: 0px 0px 2px 2px #dbdede;
+	box-shadow: 0px 0px 2px 2px var(--brancoShadow);
 }
 
 #formTelaBaixo input{
 	width: 100%;
 	height: 18%;
-	background-color: #d1d1d1;
+	background-color: var(--cinzaBack);
 	left: 0;
 	top: 0;
 	font-size: large;
@@ -229,10 +245,10 @@ body {
 	position: relative;
 	top: -55px;
 	left: -5px;
-	background-color: #ebebeb; 
-    border: 1px solid #0000005b;
+	background-color: var(--brancoBorda); 
+    border: 1px solid var(--black);
 	border-radius: 15px;
-	box-shadow: 0px 0px 2px 2px #dbdede;
+	box-shadow: 0px 0px 2px 2px var(--brancoShadow);
 }
 
 #d-pad {
@@ -240,22 +256,30 @@ body {
 	height:75px;
     margin-left: -5px;
     transform: scale(1.2);
+<<<<<<< HEAD
     background-color: #e4e5e5;
 	box-shadow: 0px 0px 2px 2px #dbdede;
 	position:relative;
 	top: 10px;
 	left: 55px;
+=======
+    background-color: var(--brancoBorda);
+	position:relative;
+	top: 10px;
+	left: 55px;
+	box-shadow: 0px 0px 2px 2px var(--brancoShadow);
+>>>>>>> 1fecd70c21a8030f0b4c2fa064f9d9f2e000a5f6
 }
 
 #d-pad:before  {
-	background:#e4e5e5;
+	background: var(--brancoBorda);
 	content:"";
 	width: 75px;
 	height: 28px;
 	position: absolute;
 	top: 23px;
 	left: -23px;
-	box-shadow: 0px 0px 2px 0px #dbdede;
+	box-shadow: 0px 0px 2px 0px var(--brancoShadow);
 }
 
 .fa-angle-up, .fa-angle-right, .fa-angle-left, .fa-angle-down {
@@ -264,8 +288,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e4e5e5;
-    color: white;
+    background-color: var(--brancoBorda);
+    color: var(--cinzaSombra);
     cursor: pointer;
     position: relative;
 }
@@ -277,33 +301,33 @@ body {
 .fa-angle-up {
     top: -25%;
     left: -8%;
-    border-top: 2px solid #0000004f;
-    border-left: 2px solid #0000004f;
-    border-right: 2px solid #0000004f;
+    border-top: 2px solid var(--blackAngle);
+    border-left: 2px solid var(--blackAngle);
+    border-right: 2px solid var(--blackAngle);
 }
 
 .fa-angle-right {
     top: -25%;
     left: 99%;
-    border-top: 2px solid #0000004f;
-    border-bottom: 2px solid #0000004f;
-    border-right: 2px solid #0000004f;
+    border-top: 2px solid var(--blackAngle);
+    border-bottom: 2px solid var(--blackAngle);
+    border-right: 2px solid var(--blackAngle);
 }
 
 .fa-angle-down {
     top: -84%;
     left: -8%;
-    border-bottom: 2px solid #0000004f;
-    border-left: 2px solid #0000004f;
-    border-right: 2px solid #0000004f;
+    border-bottom: 2px solid var(--blackAngle);
+    border-left: 2px solid var(--blackAngle);
+    border-right: 2px solid var(--blackAngle);
 }
 
 .fa-angle-left {
     top: -80%;
     right: 106%;
-    border-top: 2px solid #0000004f;
-    border-left: 2px solid #0000004f;
-    border-bottom: 2px solid #0000004f;
+    border-top: 2px solid var(--blackAngle);
+    border-left: 2px solid var(--blackAngle);
+    border-bottom: 2px solid var(--blackAngle);
 }
 
 #home-btn {
@@ -312,8 +336,8 @@ body {
 	position: relative;
 	top: 15px;
 	left: 135px;
-	background-color: #555858;
-	border: 2px solid #161616; 
+	background-color: var(--cinzaSombra);
+	border: 2px solid var(--black); 
 	border-radius: 10px;
 	cursor: pointer;	
 }
@@ -336,7 +360,7 @@ body {
     justify-content: center;
     position: relative;
     border-radius: 50px;
-	box-shadow: 0px 0px 2px 2px #dbdede;
+	box-shadow: 0px 0px 2px 2px var(--brancoShadow);
     color: white;
     cursor: pointer;
 }
@@ -372,11 +396,11 @@ body {
     width: 75px;
 	height: 20px;
     font-size: .9em;
-    background: #dbdede; 
-    color: white;
-	border: 2px solid #dbdede; 
+    background:var(--cinzaSombra); 
+    color: var(--white);
+	border: 2px solid var(--brancoBorda); 
     border-radius: 50px;
-    box-shadow: 0px 0px 2px 1px #dbdede;
+    box-shadow: 0px 0px 2px 1px var(--cinzaSombra);
 	position: relative;
     cursor: pointer;
 }
@@ -406,7 +430,7 @@ body {
 #light-1, #light-2, #light-3 {
     width: 5px;
 	height: 10px;
-	background-color: #7a7e7d;
+	background-color: var(--cinzaSombra);
 	position: relative;
 }
 
@@ -429,7 +453,7 @@ body {
 }
 
 .screen-on {
-	background-color: #fff !important;
+	background-color: var(--white) !important;
 }
 
 .light-1-on {
@@ -451,7 +475,7 @@ body {
 	padding: 0.5rem;
 	height: 0.5rem;
 	width: 0.5rem;
-	background-color: #f1f1f1;
+	background-color: var(--brancoBorda);
 	border-radius: 1000px;
 	cursor: help;
 	box-shadow: 0 0 10px #ff000000;
@@ -475,7 +499,7 @@ body {
 	height: 50px;
 	background: url(../conteudo/imgs/pikachu-icon.webp) no-repeat center;
 	background-size: cover;
-	border: 2px solid #e0131d;
+	border: 2px solid var(--vermelho);
 	border-radius: 50%;
 	box-sizing: border-box;
 	position: absolute;
@@ -506,7 +530,7 @@ body {
 	display: block;
 	background: #ffffffe1;
 	border-radius: 20px 0 0 20px;
-	border: 1px solid #e0131d;
+	border: 1px solid var(--vermelho);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -521,7 +545,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
-	background: #e0131d;
+	background: var(--vermelho);
 }
 
 #options #avatar {
@@ -529,7 +553,7 @@ body {
 	height: 40%;
 	background: white url(../conteudo/imgs/avatar-masculino.webp);
 	background-size: cover;
-	border: 3px solid black;
+	border: 3px solid var(--black);
 	border-radius: 50%;
 	cursor: pointer;
 }
@@ -541,8 +565,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
-	background: white;
-	color: black;
+	background: var(--white);
+	color: var(--black);
 	position: absolute;
 	top: .5%;
 	right: 1%;
@@ -557,10 +581,10 @@ body {
 	text-transform: capitalize;
 	font-size: 1.3em;
 	background-color: #2f2f2f;
-	color: white;
-	border: 1px solid black;
+	color: var(--white);
+	border: 1px solid var(--black);
 	border-radius: 10px;
-	box-shadow: -4px 4px 0 #555;
+	box-shadow: -4px 4px 0 var(--cinzaSombra);
 }
 
 #color {
@@ -576,10 +600,10 @@ body {
 	height: 10%;
 	font-size: 1.1em;
 	background-color: #2f2f2f;
-	color: white;
-	border: 1px solid black;
+	color: var(--white);
+	border: 1px solid var(--black);
 	border-radius: 10px;
-	box-shadow: -4px 4px 0 #555;
+	box-shadow: -4px 4px 0 var(--cinzaSombra);
 }
 
 #footer {
@@ -618,7 +642,7 @@ body {
 #footer a {
 	width: 100%;
 	height: 100%;
-	color: black;
+	color: var(--black);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -626,8 +650,8 @@ body {
 }
 
 #footer a:hover {
-	background-color: #e0131d;
-	color: white;
+	background-color: var(--vermelho);
+	color: var(--white);
 	border-radius: 5px;
 }
 
@@ -640,10 +664,10 @@ body {
 	width: 35.5%;
 	height: 20%;
 	display: flex;
-	background-color: #ffffffe1;
-	border: 1px solid black;
+	background-color: var(--brancoBorda);
+	border: 1px solid var(--black);
 	border-radius: 10px;
-	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.658);
+	box-shadow: -2px 2px 2px var(--blackShadow);
 	position: absolute;
 	top: 22%;
 	right: 2%;
