@@ -68,6 +68,8 @@ const avatarFeminino = document.getElementById('avatarFemale')
 let volumeAtual
 let apiStart = false
 let dsLigado = false
+let shiny = false
+let costas = false
 
 //============== Eventos ==============
 
@@ -186,6 +188,66 @@ setaUp.addEventListener('click', () => {
         aumentarVolume()
     }
 })
+
+
+yellowBtn.addEventListener('click', () => {
+
+    if(dsLigado && apiStart) {
+        
+        if (!shiny) {
+            shiny=true   
+        } else {
+            shiny=false
+        }
+    
+        exibirPokemonVersoes(shiny, costas)
+    }
+})
+
+blueBtn.addEventListener('click', () => {
+
+    if(dsLigado && apiStart) {
+
+        if (costas) {
+            costas = false
+        } else {
+            costas = true
+        }
+
+        exibirPokemonVersoes(shiny,costas)
+    }
+
+})
+
+greenBtn.addEventListener('click', () => {
+    if(dsLigado && apiStart) {
+
+        if (costas) {
+            costas = false
+        } else {
+            costas = true
+        }
+
+        exibirPokemonVersoes(shiny,costas)
+    }
+})
+
+redBtn.addEventListener('click', () => {
+    if(dsLigado && apiStart) {
+        
+        if (!shiny) {
+            shiny=true   
+        } else {
+            shiny=false
+        }
+    
+        exibirPokemonVersoes(shiny, costas)
+    }
+})
+
+
+
+
 
 // evento de clique na seta pra direita
 setaRight.addEventListener('click', () => {

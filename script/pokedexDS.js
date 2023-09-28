@@ -37,6 +37,7 @@ const coresTeste = {
 }
 
 let idPokemonBuscado = 1
+let versao = []
 
 const consultarPokemon = async (pokemon) => {
     const API = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
@@ -53,8 +54,22 @@ const exibirPokemon = async (pokemon) =>{
     if(data && data.id < 650 && data.id > 0){
         
         nomePokemon.innerHTML = `<h2 id="nmPokemon" style="margin-top: 10px">#${data.id}  - ${data.name}</h2>`;
-        imgPokemon.src = data['sprites']['versions']['generation-v']['black-white']
+        
+        versao[0] = data['sprites']['versions']['generation-v']['black-white']
         ['animated']['front_default'];
+
+        versao[1] = data['sprites']['versions']['generation-v']['black-white']
+        ['animated']['front_shiny'];
+
+        versao[2] = data['sprites']['versions']['generation-v']['black-white']
+        ['animated']['back_default'];
+        
+        versao[3] = data['sprites']['versions']['generation-v']['black-white']
+        ['animated']['back_shiny'];
+        
+        
+        shiny = false
+        imgPokemon.src = versao[0] 
 
         let tipos = data.types.map(tp =>tp.type.name)
         const cor = coresTeste[tipos[0]]  
@@ -91,6 +106,22 @@ const exibirPokemon = async (pokemon) =>{
         idPokemonBuscado = data.id
     }   
 }
+
+
+
+function exibirPokemonVersoes(shiny, costas) {
+        
+    if (shiny && costas) {
+        imgPokemon.src = versao[3]    
+    } else if (!shiny && costas) {
+        imgPokemon.src = versao[2]    
+    } else if (shiny && !costas) {
+        imgPokemon.src = versao[1]
+    } else {
+        imgPokemon.src = versao[0]
+    }
+}
+
 
 function proxPokemon () {
    
