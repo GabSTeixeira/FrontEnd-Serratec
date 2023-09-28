@@ -67,8 +67,6 @@ const exibirPokemon = async (pokemon) =>{
         versao[3] = data['sprites']['versions']['generation-v']['black-white']
         ['animated']['back_shiny'];
         
-        
-        shiny = false
         imgPokemon.src = versao[0] 
 
         let tipos = data.types.map(tp =>tp.type.name)
