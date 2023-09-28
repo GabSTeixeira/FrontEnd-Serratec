@@ -94,15 +94,10 @@ home.addEventListener('click', () => {
 
         pesquisaPokemon.style.visibility = 'hidden'
 
-<<<<<<< HEAD
-        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg') center"
-        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif') center "
-=======
         // faz as imagens da tela de cima e da tela de baixo se tornarem
         // as padrões
-        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg')"
-        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif')"
->>>>>>> 1fecd70c21a8030f0b4c2fa064f9d9f2e000a5f6
+        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg') center"
+        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif') center "
 
         telaCima.style.backgroundSize = 'cover'
         telaBaixo.style.backgroundSize = 'cover'
