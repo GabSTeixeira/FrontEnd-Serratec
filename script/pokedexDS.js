@@ -1,5 +1,3 @@
-
-
 if(localStorage.getItem("acesso") === "false"){
     window.location.href = "../index.html"
 }
