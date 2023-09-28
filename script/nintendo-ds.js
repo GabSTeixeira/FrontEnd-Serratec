@@ -91,8 +91,8 @@ home.addEventListener('click', () => {
 
         pesquisaPokemon.style.visibility = 'hidden'
 
-        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg')"
-        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif')"
+        telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg') center"
+        telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif') center "
 
         telaCima.style.backgroundSize = 'cover'
         telaBaixo.style.backgroundSize = 'cover'
@@ -151,6 +151,7 @@ avatarFeminino.addEventListener('click', () => {
     avatarOptions.classList.toggle('open')
 })
 
+//input de pesquisa
 formTelaBaixo.addEventListener("submit", (event) => {
     event.preventDefault()
     
@@ -185,6 +186,7 @@ setaLeft.addEventListener('click', () => {
 //evento que fecha o menu
 btnX.addEventListener('click', () => {
     menu.classList.remove('open')
+    avatarOptions.classList.remove('open')
 })
 
 //evento que abre o menu
@@ -221,6 +223,7 @@ function diminuirVolume() {
     }
 }
 
+//recebe o nome da pessoa
 function buscarNomeUsuario() {
     const usuarioLogado = localStorage.getItem("usuarioLogado")
 
