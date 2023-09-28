@@ -5,7 +5,6 @@
   --vermelho:#e0131d;
   --cinzaSombra: #595959;
   --cinzaBack: #ffffff9b;
-  --verdeMusgo: #d6c90a6c;
 }
 
 * {
@@ -107,38 +106,6 @@ body {
   box-shadow: 0 2px var(--cinzaSombra);
 }
 
-#boxDePoder {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-#boxDePoder p {
-  font-size: 15px;
-  margin: 3px 0 3px 0;
-}
-
-#nmPokemon {
-  background: var(--verdeMusgo);
-}
-
-#poderNm {
-  margin: 0;
-  padding-left: -10px;
-  width: 50%;
-  text-align: end;
-}
-#poderBox {
-  width: 50%;
-  text-align: end;
-}
-
-#poderBox p {
-  margin: 3px 5px 3px 3px;
-  display: inline-flexbox;
-}
 /* Botão */
 .btn {
   background-color: var(--vermelho) !important;

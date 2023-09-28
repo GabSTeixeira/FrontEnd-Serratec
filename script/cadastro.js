@@ -28,7 +28,7 @@ function cadastrar(){
 
     let vetorUsuario = JSON.parse(localStorage.getItem('usuario'));
     if(usuarioExiste(vetorUsuario, usuario.email)){
-       
+
         alert('ERRO: Usuario já cadastrado!')
         return false 
     }

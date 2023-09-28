@@ -2,7 +2,7 @@
 //============== variaveis ==============
 
 // body
-const body = document.querySelector("#body")
+const nintendo = document.querySelector("#body")
 
 // setas
 const setaUp = document.querySelector(".fa-angle-up")
@@ -36,7 +36,6 @@ const altoEsquerdo = document.getElementById('right-speaker')
 const audio = document.getElementById('sound-track')
 const som_click = document.getElementById('sound-click')
 const som_btn = document.getElementById('sound-btn')
-const teclado = document.getElementById('teclado')
 
 // luz de ativação
 const luz = document.getElementById('light-3')
@@ -86,6 +85,7 @@ home.addEventListener('click', () => {
     // volume audio padrão
     audio.volume = .2
     som_click.volume = .7
+
     // se a tela de cima tiver a classe 'off' o audio pausa senao ele toca
     if (telaCima.classList.contains('off')) {
         // para e reseta a musica
@@ -97,13 +97,12 @@ home.addEventListener('click', () => {
         nomePokemon.style.display = 'none'
         infoPokemon.style.display = 'none'
         tipoPokemon.style.display = 'none'
-        
         luz.style.background = '#7a7e7d'
-
         pesquisaPokemon.style.visibility = 'hidden'
-
+        
         // faz as imagens da tela de cima e da tela de baixo se tornarem as padrões
         telaCima.style.background = "url('/conteudo/imgs/foto-pag-inicial.jpg') center"
+
         telaBaixo.style.background = "url('/conteudo/imgs/gif-pikachu.gif') center "
 
         telaCima.style.backgroundSize = 'cover'
@@ -111,7 +110,6 @@ home.addEventListener('click', () => {
 
         apiStart = false
         dsLigado = false
-
     } else {
         audio.play()
 
@@ -126,7 +124,7 @@ start.addEventListener('click', () => {
     som_btn.play()
     
     // verifica se a tela de cima esta ligada
-    if (!telaCima.classList.contains('off')) {
+    if (dsLigado) {
         // faz aparecer as tela de cima e de baixo
         imgPokemon.style.display = 'block'
         nomePokemon.style.display = 'block'
@@ -138,17 +136,19 @@ start.addEventListener('click', () => {
         telaCima.style.background = "url('../conteudo/imgs/pixelArtTelaCima.gif')"
         telaCima.style.backgroundSize = 'cover'
         
-        // telaBaixo.style.background = 'linear-gradient(150deg, black, white)'
         telaBaixo.style.background = 'linear-gradient(to bottom, rgb(43, 42, 42), rgb(27, 27, 27))'
         telaBaixo.style.backgroundSize = 'cover'
 
-        // telaBaixo.style.border = "2px solid red"
         telaBaixo.style.boxShadow = "inset 0 0 10px black"
+
         // mostrar a pesquisa e os stats
         pesquisaPokemon.style.visibility = 'visible'
 
+        shiny = false
+        costas = false
         apiStart = true
-        exibirPokemon("1");
+
+        exibirPokemon(1);
     }
 })
 
@@ -159,7 +159,6 @@ select.addEventListener('click', () => {
 
 // evento que abre as opcoes de avatar
 avatarAtual.addEventListener('click', () => {
-
     som_btn.play()
 
     avatarOptions.classList.toggle('open')
@@ -190,18 +189,16 @@ avatarFeminino.addEventListener('click', () => {
 //input de pesquisa
 formTelaBaixo.addEventListener("submit", (event) => {
     event.preventDefault()
+
+    som_btn.play()
     
     exibirPokemon(pesquisaPokemon.value)
     pesquisaPokemon.value = ""
 })
 
-// evento que troca as cores do body
+// evento que troca as cores do nintendo
 color.addEventListener("input", () => {
-    body.style.background = color.value
-})
-
-formTelaBaixo.addEventListener("input", () => {
-    som_btn.play()
+    nintendo.style.background = color.value
 })
 
 // botao A
@@ -277,7 +274,6 @@ setaUp.addEventListener('click', () => {
     som_click.play()
     
     if (dsLigado) {
-        console.log(dsLigado)
         aumentarVolume()
     }
 })
@@ -287,6 +283,9 @@ setaRight.addEventListener('click', () => {
     som_click.play()
 
     if (dsLigado && apiStart) {
+        costas = false
+        shiny = false
+
         proxPokemon()
     }
 })
@@ -305,6 +304,9 @@ setaLeft.addEventListener('click', () => {
     som_click.play()
 
     if (dsLigado && apiStart) {
+        costas = false
+        shiny = false
+
         prevPokemon()
     }
 })

@@ -2,7 +2,6 @@ if(localStorage.getItem("acesso") === "false"){
     window.location.href = "../index.html"
 }
 
-
 const imgPokemon = document.getElementById("imgPokemon");
 const nomePokemon = document.getElementById("nomePokemon");
 const pokemonAltura = document.getElementById('pokemon_altura');
@@ -15,7 +14,7 @@ const tipoIcon = document.querySelector('.tipoIcon');
 const pesquisaPokemon = document.getElementById("pesquisaPokemon")
 
 
-const coresTeste = {
+const cores = {
     normal: 'rgba(168, 167, 122,',
     fire: 'rgba(238, 129, 48,',
     water: 'rgba(99, 144, 240,',
@@ -70,7 +69,7 @@ const exibirPokemon = async (pokemon) =>{
         imgPokemon.src = versao[0] 
 
         let tipos = data.types.map(tp =>tp.type.name)
-        const cor = coresTeste[tipos[0]]  
+        const cor = cores[tipos[0]]  
         
         if(tipos.length > 1){
             tipos = `${tipos[0]} / ${tipos[1]}`
@@ -79,25 +78,24 @@ const exibirPokemon = async (pokemon) =>{
         tipoIcon.style.backgroundColor = `${cor} 0.8)`
         tipoIcon.style.boxShadow = `0 0 19px ${cor} 1)`
         bottomScreen.style.boxShadow = `inset 0 0 20px ${cor} 0.7)`
-        //bottomScreen.style.border = `2px solid ${cor} 1)`
-        //bottomScreen.style.borderTop = "none"
+        tipoIcon.setAttribute('title',`${tipos}`)
 
         bottomScreen.style.backgroundImage = `linear-gradient(to bottom, ${cor} 0.1), ${cor} 0.6)), url(../conteudo/imgs/backgroundBottonScreen.jpg)`
 
         infoTelaBaixo.innerHTML =  `
             <div id="infoPokemon" style="  display: flex; justify-content: space-around; width: 100%">
                 <div> 
-                    <p class="infoPokemonTeste"> Peso</p> 
+                    <p class="infoPokemon"> Peso</p> 
                     <h3 class="type"> ${data.weight/10} kg </h3>
                 </div>
                 <div> 
-                    <p class="infoPokemonTeste"> Altura</p> 
+                    <p class="infoPokemon"> Altura</p> 
                     <h3 class="type"> ${data.height/10} m</h3>
                 </div> 
             </div >
 
             <div style="margin-top: 20px"> 
-                <p class="infoPokemonTeste"> Tipo:</p> 
+                <p class="infoPokemon"> Tipo:</p> 
                 <h3 class="type">${tipos}</h3>
             </div>
         `
@@ -105,10 +103,8 @@ const exibirPokemon = async (pokemon) =>{
     }   
 }
 
-
-
 function exibirPokemonVersoes(shiny, costas) {
-        
+
     if (shiny && costas) {
         imgPokemon.src = versao[3]    
     } else if (!shiny && costas) {
@@ -120,29 +116,24 @@ function exibirPokemonVersoes(shiny, costas) {
     }
 }
 
-
 function proxPokemon () {
-   
-    let number = parseInt(idPokemonBuscado)
     
-    if (number < 649 ) {
-        exibirPokemon((number + 1) + "")
+    if (idPokemonBuscado < 649 ) {
+        idPokemonBuscado++
+        exibirPokemon(idPokemonBuscado)
     } else {
-        exibirPokemon("1")
+        exibirPokemon(1)
     }
-    
 }
 
 function prevPokemon () {
-    
-    let number = parseInt(idPokemonBuscado)
-    
-    if (number > 1 ) {
-        exibirPokemon((number - 1) + "")
+
+    if (idPokemonBuscado > 1 ) {
+        idPokemonBuscado--
+        exibirPokemon(idPokemonBuscado)
     } else {
-        exibirPokemon("649")
+        exibirPokemon(649)
     }
-    
 }
 
 function deslogar(){

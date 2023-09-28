@@ -471,7 +471,7 @@ body {
 	box-shadow: 0 0 10px #ff000000;
 }
 
-.infoPokemonTeste{
+.infoPokemon {
 	font-size: 20px;
 }
 
@@ -490,7 +490,7 @@ body {
 	justify-content: space-between;
 	text-align: center;
 	width: 80%;
-  }
+}
 
 #nmPokemon{
 	color: rgb(212, 212, 212);
@@ -701,7 +701,6 @@ body {
 }
 
 @keyframes options {
-
 	from {
 		transform: scale(.7);
 	}
