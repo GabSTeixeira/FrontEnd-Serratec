@@ -21,7 +21,6 @@ body {
   padding: 0;
 }
 
-
 a {
   color: var(--vermelho);
   text-shadow: none;
@@ -263,7 +262,6 @@ body {
 .btn-53:hover span:nth-child(9) {
   transition-delay: 0.8s;
 }
-
 
 @keyframes box {
   from {

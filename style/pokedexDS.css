@@ -93,7 +93,7 @@ body {
 	top: -20px;	
 	margin: 30px auto 20px auto;
 	padding: 50px 0;
-	background: url(/conteudo/imgs/foto-pag-inicial.jpg);
+	background: url(/conteudo/imgs/foto-pag-inicial.jpg) center;
 	background-size: cover;
 
 	border: 15px solid var(--brancoBorda); 
@@ -119,11 +119,11 @@ body {
 	align-items: center;
 	position: relative;
 	margin: 0 auto;
-	background: url(/conteudo/imgs/gif-pikachu.gif);
+	background: url(/conteudo/imgs/gif-pikachu.gif) center;
 	background-size: cover;
 	color:var(--brancoBorda);border-top: -10%;
 	border-radius: 6px;
-	text-shadow: 2px 2px 4px var(--blackShadow)	;
+	text-shadow: 2px 2px 4px var(--blackShadow);
 }
 
 #bottom-screen-holder {
@@ -336,11 +336,9 @@ body {
 }
 
 #color-button-holder {
-	width: 100px;
-	height: 100px;
 	position: relative;
-	top: -400px;
-	left: 515px;
+	top: -61%;
+	left:89%;
 }
 
 #blue-btn, #green-btn, #red-btn, #yellow-btn {
@@ -401,20 +399,20 @@ body {
 }
 
 #start-btn {
-	top: -355px;
-	left: 480px; 
+	top: -60%;
+	left: 82%; 
 }
 
 #select-btn {
-	top: -320px;
-	left: 400px;
+	top: -55%;
+	left: 68%; 
 }
 
 #lights-holder {
 	width: 70px;
 	height: 10px;
 	position: relative;
-	top: -306px;
+	top: -346px;
 	left: 470px;
 }
 
@@ -461,12 +459,13 @@ body {
 
 .tipoIcon {
 	position: absolute;
-	right: 0.3rem;
-	top: 0.3rem;
+	right: 2.5rem;
+	top: 11.3rem;
 	padding: 0.5rem;
-	height: 0.5rem;
-	width: 0.5rem;
+	height: -1.5rem;
+	width: -1.5rem;
 	background-color: var(--brancoBorda);
+	border: 1px solid white;
 	border-radius: 1000px;
 	cursor: help;
 	box-shadow: 0 0 10px #ff000000;
@@ -477,17 +476,37 @@ body {
 }
 
 .type {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 0.2rem 0.5rem;
     border-radius: 0.6rem;
     display: block;
     margin: 0.25rem;
+	box-shadow: 1px 1px 3px rgb(26, 25, 25);
+}
+
+#nomePokemon {
+    
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	width: 80%;
+  }
+
+#nmPokemon{
+	color: rgb(212, 212, 212);
+	text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.863);
+	background-color: rgba(0, 0, 0, 0.411);
+	text-align: center;
+	padding: 0.2rem 0.5rem;
+    border-radius: 0.6rem;
+    display: block;
+	box-shadow: 2px 2px 3px rgb(26, 25, 25);
 }
 
 /* icone de opçoes */
 #btn-icon {
-	width: 7%;
-	height: 7%;
+	width: 50px;
+	height: 50px;
 	background: url(../conteudo/imgs/pikachu-icon.webp) no-repeat center;
 	background-size: cover;
 	border: 2px solid var(--vermelho);
@@ -542,7 +561,7 @@ body {
 #options #avatar {
 	width: 50%;
 	height: 40%;
-	background: white url(../conteudo/imgs/avatar-masculino.webp);
+	background: white url(../conteudo/imgs/avatar-masculino.webp) center;
 	background-size: cover;
 	border: 3px solid var(--black);
 	border-radius: 50%;
@@ -651,6 +670,7 @@ body {
 }
 
 #avatar-options.open {
+	animation: options 1s ease-in-out;
 	width: 35.5%;
 	height: 20%;
 	display: flex;
@@ -680,6 +700,17 @@ body {
 	cursor: pointer;
 }
 
+@keyframes options {
+
+	from {
+		transform: scale(.7);
+	}
+
+	90% {
+		transform: scale(1.1);
+	}
+}
+
 @keyframes to_left {
 	from {
 		transform: translateX(100%);
@@ -693,13 +724,108 @@ body {
 	}
 }
 
-@media screen and (min-width:1200px) {
+/* media mobile */
+@media screen and (max-width: 768px) {
+
+	#menu.open {
+		width: 80%;
+	}
+
+
 	#btn-icon {
+		width: 50px;
+		height: 50px;
+	}
+
+	#avatar-options.open {
+		width: 70%;
+		margin-right: 3%;
+	}
+
+	#container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	#body {
+		width: 95%;
+		margin: 0;
+		padding: 0;
+		border: 2px solid black;
+		position: relative;
+	}
+
+	#top-screen {
+		width: 70%;
+	}
+
+	#bottom-screen {
+		width: 90%;
+	}
+
+	#bottom-screen-holder {
+		width: 47%;
+	}
+
+	#d-pad {
 		width: 5%;
 	}
 
+	#home-btn {
+		position: relative;
+		left: 36%;
+	}
+	
+	#right-speaker, #left-speaker {
+		z-index: -3;
+	}
+
+	#hinge {
+		width: 102%;
+	}
+
+	#formTelaBaixo input{
+		width: 130%;
+		height: 18%;
+		background-color: #d1d1d1;
+		position: absolute;
+		left: -30%;
+		top: -154%;
+		border: none;
+	}
+
+	#start-btn {
+		top: -60%;
+		left: 46%; 
+	}
+	
+	#select-btn {
+		top: -55%;
+		left: 27%;  
+	}
+
+	#lights-holder {
+		display: none;
+	}
+
+	#color-button-holder {
+		transform: translateX(-10px);
+	}
+}
+
+/* tela cheia */
+@media screen and (min-width:1200px) {
+
 	#menu.open {
 		width: 25%;
+	}
+
+	#avatar-options.open {
+		width: 20%;
 	}
 
 	#options i {
